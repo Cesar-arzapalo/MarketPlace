@@ -1,0 +1,49 @@
+.navbar-emark{
+    background-color: rgb(255,0,0)!important; 
+    height: 60px;
+    padding: 0 10px;
+}
+.navbar-container{
+    margin: 0 20px !important;
+    
+}
+.navbar-brand{
+    color:#fff;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* vertical-align: center; */
+}
+.navbar-brand:hover{
+    color:rgba(255,255,255,0.75);
+}
+.navbar-brand:active{
+    color:#fff
+}
+.navbar-icon{
+    width: 35px;
+    height: 35px;
+    margin: 5px
+}
+.navbar-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+.navbar-form{
+    width: 100%;
+}
+.buscador{
+    width: 100%;
+    border-radius: 15px;
+}
+.navbar-cuenta{
+    text-align: end;
+    color:#fff;
+}
+.navbar-icon-user{
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}
