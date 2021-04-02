@@ -1,0 +1,13 @@
+<div class="menu-emark">
+    <div class="row menu-container ">
+        <div class="col-md-2 menu-section menu-selection">
+            <a class="menu-categorias" onclick="console.log('hola')" > CATEGORIA <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
+        </div>
+        <div *ngFor="let categoria of categorias" class="col-md-1 menu-section ">
+                {{categoria.nombre}}
+       </div>
+        <div class="col-md-1 menu-carro menu-section ">
+            <a class="menu-categorias" onclick="console.log('hola')" > <i class="fas fa-shopping-cart"></i> <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
+        </div>    
+    </div>
+</div>

@@ -1,1 +1,43 @@
-<p>footer works!</p>
+<footer class="footer row">
+    <div class="col-md-3">
+        <div class="footer-section"> 
+            <div class="footer-title footer-title-principal"><i class="fas fa-store"></i> EMARK</div>
+        </div>
+        <div class="footer-section"> 
+            <div class="footer-title">AYUDA CALLCENTER</div>
+        </div>
+        <div *ngFor="let infoCall of infoCallCenter">
+            <div class="footer-section">{{infoCall}}</div>
+        </div>
+        <div class="footer-section"> 
+            <div class="footer-title">SIGUENOS</div>
+        </div>
+        <div class="row footer-section">
+            <div *ngFor="let infoRed of informacionRedes" class="col-md-2">
+                <div class="footer-red" >
+                    <a  href="{{infoRed.enlace}}" target="_blank"><i class= "{{infoRed.iconReference}}"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="footer-section"> 
+            <div class="footer-title">NOSOTROS</div>
+        </div>
+        <div *ngFor="let infoEmpresa of informacionEmpresa">
+            <div class="footer-section">
+                <a  routerLink="{{infoEmpresa.enlace}}">{{infoEmpresa.descripcion}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="footer-section"> 
+            <div class="footer-title">TIENDA ONLINE</div> 
+        </div>
+        <div *ngFor="let infoConsulta of infoConsultas">
+            <div class="footer-section">
+                <a  routerLink="{{infoConsulta.enlace}}">{{infoConsulta.descripcion}}</a>
+            </div>
+        </div>
+    </div>
+</footer>
