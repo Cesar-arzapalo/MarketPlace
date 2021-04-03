@@ -1,1 +1,41 @@
-<p>catalogo works!</p>
+<div class="catalogo row">
+    <div class="col-md-3">
+        <div class="catalogo-lista">
+            <div class="categoria-actual centrado bordes-bajo">
+                Categoria: {{categoriaActual.nombre}}
+            </div>
+            <div *ngFor="let categoria of categoriasHijas" class="categorias">
+                <div class="categoria">{{categoria.nombre}}</div>
+            </div>
+            <div *ngFor="let opcion of opciones" class="categorias bordes-bajo">
+                <div  class="categoria-opcion row">
+                    <div class="col-md-10 centrado-verticalmente ">
+                        {{opcion}} 
+                    </div>
+                    <div class="col-md-2 centrado-verticalmente ">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 categoria-vista">
+        <div class="catalogo-opciones row">
+            <div class="col-md-4 centrado-verticalmente ">
+                {{categoriaActual.nombre}}: {{productos.length}} producto{{(productos.length>1)?"s":""}}
+            </div>
+            <div class="col-md-4 centrado-verticalmente borde-izquierdo">
+                Ordenado por: 
+            </div>
+            <div class="col-md-4 centrado-verticalmente borde-izquierdo borde-derecho-redondeados">
+                Vista por:
+            </div>
+        </div>
+        <div class="lista-productos">
+            <div *ngFor="let p of productos">
+                <app-producto [producto]="p"></app-producto>
+            </div>
+        </div>
+    </div>
+</div>

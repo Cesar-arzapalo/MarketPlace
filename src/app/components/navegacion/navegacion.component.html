@@ -1,3 +1,8 @@
-<div class="ruta">
-    {{ruta}}
+<div class="navegacion">
+    <div *ngFor="let directorio of navegacion; let idx = index" class="coexistencias">
+        <div [ngClass]="{'directorio-hijo':navegacion.length - 1 == idx}" class="directorio">
+            {{directorio}} 
+        </div>
+        <i *ngIf ="navegacion.length - 1 != idx" class="fas fa-angle-right separador"></i>
+    </div>
 </div>

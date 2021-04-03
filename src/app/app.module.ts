@@ -9,6 +9,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ProductoComponent } from './components/producto/producto.component';
+import { DetalleProductoComponent } from './pages/detalle-producto/detalle-producto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { CatalogoComponent } from './pages/catalogo/catalogo.component';
     SidebarComponent,
     MenuComponent,
     NavegacionComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    UsuarioComponent,
+    NotFoundComponent,
+    ProductoComponent,
+    DetalleProductoComponent
   ],
   imports: [
     BrowserModule,

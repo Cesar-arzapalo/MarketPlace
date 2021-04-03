@@ -1,8 +1,27 @@
 .navegacion{
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 60px;    
+    justify-content: flex-start;
+    height: 60px;
+    padding: 0 30px; 
     font-size: 16px;
-    color: rgb(160, 160, 160);
+    color: rgb(77, 77, 77);
+}
+.directorio{
+    margin: 0 8px;
+}
+
+.directorio-hijo{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+.separador{
+    display: flex;
+}
+
+.coexistencias{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navegacion',
@@ -8,19 +8,26 @@ import { Component, OnInit } from '@angular/core';
 export class NavegacionComponent implements OnInit {
 
   ruta: String;
-  navegacion: Array<String>;
+  navegacion: Array<string>;
+  @Output() newItemEvent = new EventEmitter<string>();
   constructor() { 
     this.ruta = ""
-    this.navegacion = ['Inicio']
+    this.navegacion = ['Catalogo','Bebidas','Regeneradoras',"Energizantes"]
     this.actualizarNavegacion()
   }
 
   public actualizarNavegacion = () => {
     this.ruta=""
-    this.navegacion.map( (item: String) => this.ruta.concat(item.toString()))
+    this.navegacion.map( (item: String) => this.ruta = this.ruta.concat(item.toString()))
+    console.log(this.ruta)
   }
 
   ngOnInit(): void {
+    this.addNewItem()
+  }
+
+  addNewItem() {
+    this.newItemEvent.emit(this.navegacion[this.navegacion.length-1]);
   }
 
 }

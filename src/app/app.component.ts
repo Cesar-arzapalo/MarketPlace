@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'EMarket';
+  ramaPrincipal: string;
+  hoja: string;
+
+  constructor () {
+    this.ramaPrincipal = "";
+    this.hoja = "";
+  }
+
+  public obtenerRamaPrincipal  = (rama: string) => this.ramaPrincipal = rama;
+  public obtenerHoja  = (hoja: string) => this.ramaPrincipal = hoja;
 }
