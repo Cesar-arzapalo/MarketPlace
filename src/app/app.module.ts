@@ -13,7 +13,9 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { DetalleProductoComponent } from './pages/detalle-producto/detalle-producto.component';
+import { AdministracionComponent } from './pages/administracion/administracion.component';
 
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +28,16 @@ import { DetalleProductoComponent } from './pages/detalle-producto/detalle-produ
     UsuarioComponent,
     NotFoundComponent,
     ProductoComponent,
-    DetalleProductoComponent
+    DetalleProductoComponent,
+    AdministracionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+    
   ],
+  exports:[  ],
   providers: [],
   bootstrap: [AppComponent]
 })

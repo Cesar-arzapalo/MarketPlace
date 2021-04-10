@@ -1,0 +1,25 @@
+<form class="row" [formGroup]="form" >
+    <div class="col">
+        <table class="table mb-3">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">idx</th>
+                    <th scope="col" *ngFor="let campo of campos">{{campo.nombre}}</th>
+                    <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody formArrayName="formTabla">
+                <tr *ngFor="let objeto of objetos; let i = index">
+                    <th scope="row"> {{ i + 1 }} </th>
+                    <td *ngFor="let campo of objeto.campos;let idx=index"> 
+                        <input class="form-control" [type]="campo.tipo" [placeholder]="'Ingrese un/una ' + campo.nombre" [formControlName]="i"  >
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" (click)="borrarObjetoTabla(i)">Borrar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary mt-3 mb-3 float-end" type="button" (click)="anyadirObjetoTabla()"> Agregar Nuevo</button>
+    </div>
+</form>

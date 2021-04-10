@@ -1,0 +1,34 @@
+.form-datos{
+    padding: 30px;
+}
+.titulo-datos{
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+}
+
+.seccion-datos{
+    padding: 15px;
+}
+
+.subtitulo-datos{
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.contenido-datos{
+    margin: 10px 0;
+} 
+.centro{
+    align-items: center;
+}
+.btn-enviar{
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+.enviar-datos{
+    padding: 15px;
+}

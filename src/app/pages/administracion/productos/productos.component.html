@@ -1,0 +1,109 @@
+<form action="" class="form-datos row" [formGroup]="productosForm" ><!----> 
+    <div class="col">
+
+        <div class="titulo-datos">Productos</div>
+        <div class="seccion-datos" id="producto-generales">
+            <div class="subtitulo-datos">Datos Generales</div>
+            <div class="contenido-datos row">
+                <div class="col-md-6">
+                    <div class="input-group input-group-md mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Nombre</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md"  formControlName="nombre" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-md mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Descripcion</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="descripcion"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seccion-datos" id="producto-pruntuacion">
+            <div class="subtitulo-datos">Datos sobre la Puntuacion</div>
+            <div class="contenido-datos row">
+                <div class="col-md-6">
+                    <div class="input-group input-group-md mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Valorizacion</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="valorizacion" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-md mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Visitas</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="visitas"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seccion-datos" id="producto-precio">
+            <div class="subtitulo-datos">Datos sobre el Stock y el Precio</div>
+            <div class="contenido-datos row">
+                <div class="col-md-4">
+                    <div class="input-group input-group-md mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Stock</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="stock"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group input-group-md mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Precio</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="precio"/>
+                    </div>
+                </div>
+                <div class="col-md-4 row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group-md mb-3">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Medida
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                            </ul>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button" formControlName="medida"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-md mb-3">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" >
+                                Unidad
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                            </ul>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button" formControlName="unidad" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seccion-datos" id="producto-caracteristicas">
+            <div class="subtitulo-datos">Caracteristicas</div>
+            <div class="contenido-datos row">
+                <div class="col">
+                    <app-tabla [campos]="camposCaracteristica" (eventFormEmit)="actualizarCaracteristicas($event)" ></app-tabla>
+                </div>
+            </div>
+        </div>
+        <div class="seccion-datos" id="producto-imagenes">
+            <div class="subtitulo-datos">Imagenes referenciuales</div>
+            <div class="contenido-datos row">
+                <div class="col">
+                    <app-tabla [campos]="camposImagenes" (eventFormEmit)="actualizarImagenes($event)"></app-tabla>
+                </div>
+            </div>
+        </div>
+        <div class="enviar-datos">
+            <button class="btn btn-success btn-enviar" type="submit" (click)="anyadirProducto()">Añadir prodctos</button>
+        </div>
+    </div>
+    
+</form>
