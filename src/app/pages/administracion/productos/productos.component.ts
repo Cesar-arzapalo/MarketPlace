@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Campo } from 'src/app/models/objeto-tabla.model';
+import { Producto } from 'src/app/models/producto.models';
 import Swal from 'sweetalert2'
 import { ProductoService } from '../../../services/producto.service';
 @Component({
@@ -15,8 +16,9 @@ export class ProductosComponent implements OnInit {
   productosForm: FormGroup
 
   constructor(private fb:FormBuilder, private productoService:ProductoService) { 
+    console.log(12)
     this.camposImagenes=[new Campo("imagen","text")]
-    this.camposCaracteristica=[new Campo("caracteristica","text")]
+    this.camposCaracteristica=[new Campo("nombre","text"),new Campo("descripcion","number")]
     // this.productosForm=fb.group({});
     this.productosForm=fb.group({
       nombre: ['',[Validators.required,Validators.maxLength(30)]],
@@ -73,8 +75,9 @@ export class ProductosComponent implements OnInit {
       title:'Espere por favor...'
     })
     Swal.showLoading ()
-    this.productoService.getProductos().subscribe(resp =>{
-      console.log(resp)
-    })
+    // this.productoService.getProductos().subscribe(resp =>{
+    //   console.log(resp)
+    // })
+    // this.productoService.insertarProducto();
   }
 }
