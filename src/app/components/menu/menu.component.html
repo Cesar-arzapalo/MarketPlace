@@ -7,7 +7,7 @@
                 {{categoria.nombre}}
        </div>
         <div class="col-md-1 menu-carro menu-section ">
-            <a class="menu-categorias" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" > <i class="fas fa-shopping-cart"></i> <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
+            <a class="menu-categorias" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" (click)="actualizarCarro()" > <i class="fas fa-shopping-cart"></i> <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
             
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -26,11 +26,11 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <!-- <tr  *ngFor="let producto of pedido.productos; let idx = index">
+                              <tr  *ngFor="let producto of pedido.productos; let idx = index">
                                 <th scope="row">idx</th>
                                 <td>{{producto.producto.nombre}}</td>
                                 <td>{{producto.cantidad}}</td>
-                              </tr> -->
+                              </tr>
                             </tbody>
                           </table>
                         <div>
