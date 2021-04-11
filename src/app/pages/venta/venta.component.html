@@ -3,7 +3,7 @@
     <div class="col">
         <div class="titulo-venta">Venta del pedido - {{pagina}}</div>
 
-        <div class="seccion-venta" [ngSwitch]="pagina">
+        <div class="seccion-venta mb-3" [ngSwitch]="pagina">
             <app-tipo-entrega *ngSwitchCase="'tipo de entrega'"></app-tipo-entrega>
             <app-tipo-recepcion *ngSwitchCase="'tipo de recepcion'"></app-tipo-recepcion>
             <app-metodo-pago *ngSwitchCase="'metodo de pago'"></app-metodo-pago>

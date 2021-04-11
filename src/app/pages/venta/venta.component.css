@@ -1,7 +1,14 @@
 .venta{
     padding: 0px 20px;
+    margin: 20px 0;
 }
 .titulo-venta{
     font-size: 24px;
     font-weight: bold;
+}
+
+button{
+    width: 50%;
+    height: 40px;
+    font-size: 18px;
 }

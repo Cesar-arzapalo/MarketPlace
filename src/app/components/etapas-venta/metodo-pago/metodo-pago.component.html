@@ -1,38 +1,28 @@
-<div class="tipo-pago">
+<div class="contenido">
     <app-barra [opciones]="opcionesMetodoPago"></app-barra>
-        <div class="opciones-pago">
-            <h2>Tarjeta de debito</h2>
+    <div class="cuerpo-tipo-recepcion row g-0">
+        <div class="col-md-5 p-3">
+            <div class="input-group input-group-md mb-2 ">
+                <span class="input-group-text" id="inputGroup-sizing-md">Nro tarjeta</span>
+                <input type="number" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+            </div>
         </div>
-        <div class="opciones-pago">
-            <a href="credito.html">
-                <h2>Tarjeta de credito</h2>
-            </a>
+        <div class="col-md-5 p-3">
+            <div class="input-group input-group-md mb-2">
+                <span class="input-group-text" id="inputGroup-sizing-md">Fecha caducidad</span>
+                <input type="month" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+            </div>
+
         </div>
-        <div class="opciones-pago">
-            <a href="billetera.html">
-                <h2>Billetera digital</h2>
-            </a>
+        <div class="col-md-2 p-3">
+            <div class="input-group input-group-md mb-2">
+                <span class="input-group-text" id="inputGroup-sizing-md">CCV</span>
+                <input type="number" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+            </div>
+
         </div>
     </div>
-    <div class="formulario">
-        <div class="ordenar_form">
-            <div class="unform">
-                Nro de tarjeta:
-                <input type="text" size="25" maxlength="30" name="nrotarjeta">
-            </div>
-            <div class="unform">
-                Codigo de seguridad:
-                <input type="text" size="25" maxlength="3" name="ccv">
-            </div>
-        </div>
-        <div class="ordenar_form">
-            <div class="unform">
-                Fecha de caducidad:
-                <input type="text" size="25" maxlength="7" name="caducidad">
-            </div>
-            <div class="unform">
-                Pago total:
-                <input type="text" size="25" maxlength="10" name="pago">
-            </div>
-        </div>
-    </div>
+</div>

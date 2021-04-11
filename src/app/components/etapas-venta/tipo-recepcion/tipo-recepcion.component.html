@@ -1,46 +1,29 @@
-<app-barra [opciones]="opcionesTipoRecepcion"></app-barra>
-<section>
-    <div class="flex-conteiner">
-        <div class="flex-item-menu">
-            
-            <a href="#" class="button gray large">Yo recepcionare el pedido</a>
-            
-            <a href="#" class="button red large">Una persona recepcionara por mi</a>
+<div class="contenido">
 
+    <app-barra [opciones]="opcionesTipoRecepcion"></app-barra>
+    <div class="cuerpo-tipo-recepcion row g-0">
+        <div class="input-group input-group-md mb-2 p-3">
+            <span class="input-group-text" id="inputGroup-sizing-md">Nombres y apellidos</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-md" formControlName="stock" />
         </div>
-        <div class="flex-item-txt">
-            <table >
-                <tr>
-                    <td>Nombre y Apellidos: </td>
-                    <td>
-                        <input type="text" name="txt" />
-                    </td>
-                </tr>
+        <div class="row g-0">
+            <div class="col p-3">
+                <div class="input-group input-group-md mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-md">DNI</span>
+                    <input type="number" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+                </div>
 
-                <tr>
-                    <td>DNI:</td>
-                    <td>
-                        <input type="text" name="txt" />
-                    </td>
-                </tr>
+            </div>
+            <div class="col p-3">
+                <div class="input-group input-group-md mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-md">Telefono</span>
+                    <input type="number" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+                </div>
 
-
-                <tr>
-                    <td>Teléfono:</td>
-                    <td>
-                        <input type="text" name="txt" />
-                    </td>
-
-                </tr>
-
-
-            </table>
+            </div>
         </div>
-        <div class="flex-item-buttons">
-            <a href="#" class="button red medium">Regresar</a>
-            <a href="#" class="button red medium">Siguiente</a>
-            <a href="#" class="button red medium">Limpiar</a>
-            
     </div>
-    </div>
-</section>
+</div>

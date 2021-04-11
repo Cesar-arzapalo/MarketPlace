@@ -1,61 +1,9 @@
-.tipo-pago{
-    background-color: rgba(235, 221, 221, 0.945); 
-    height: 100px;
-    color:rgb(0, 0, 0);
+.contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
 }
-
-.opciones-pago{
-    display: inline-block;
-    padding-right: 40px;
-    padding-top: 15px;
-    width: 30%;
-    text-align: center;
-    font-size: 15px;
-    color:rgb(29, 27, 27);
-    border:0;
-    cursor:pointer;
-    border-radius: 2px;
-
-}
-
-.opciones-pago:hover{
-    background-color: rgb(255,0, 0);
-    color:white
-}
-
-.ordenar_form{
-    font-size: 20px;    
-    display: inline-block;
-    padding-left: 200px;
-    padding-top: 50px;
-    text-align: center;
-    font-size: 30px;
-    color:rgb(0, 0, 0);
-}
-
-.unform{
-    text-align: left;
-    padding-top: 60px;
-
-}
-
-.cuadro{
-    text-align: right;
-}
-
-.botones-f{
-    text-align: center;
-    padding-top: 120px;
-    
-}
-.boton{
-    background-color: rgb(255,0, 0);
-    color:white;
-    font-size: 30px;
-    margin-right: 100px;
-}
-
-.boton:hover{
-    background-color: rgb(190, 105, 105);
-    color:white
+.cuerpo-tipo-recepcion{
+    border: 1px red solid;
+    padding: 20px;
 }

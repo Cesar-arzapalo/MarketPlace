@@ -1,22 +1,26 @@
-<app-barra [opciones]="opcionesTipoEntrega"></app-barra>
-<div class="formulario">
-
-    <div class="ubicación">
-            <div class="campo ">
-                    <p class="campo__label" >Departamento  </p>
-                    <input class="campo__input" type="text" placeholder="Lima" >
-            </div>
-            <div class="campo " >
-                    <p class="campo__label" >Provincia</p>
-                    <input class="campo__input" type="text" placeholder="Lima" >
-            </div>
-    </div>
-    <div class="campo " >
-                    <p class="campo__label" >Distrito</p>
-                    <input class="campo__input" type="text" placeholder="Lima" >
-            </div>
-    <div class="campo " >
-                    <p class="campo__label" >Tienda </p>y
-                    <input class="campo__input" type="text">
-            </div>
+<div class="contenido">
+        <app-barra [opciones]="opcionesTipoEntrega"></app-barra>
+        <div class="cuerpo-tipo-recepcion row g-0">
+                <div class="row g-0">
+                        <div class="col p-3">
+                                <div class="input-group input-group-md mb-2">
+                                        <span class="input-group-text" id="inputGroup-sizing-md">Distrito</span>
+                                        <input type="text" class="form-control" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+                                </div>
+                        </div>
+                        <div class="col p-3">
+                                <div class="input-group input-group-md mb-2">
+                                        <span class="input-group-text" id="inputGroup-sizing-md">Codigo Postal</span>
+                                        <input type="number" class="form-control" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+                                </div>
+                        </div>
+                        <div class="input-group input-group-md mb-2 p-3">
+                                <span class="input-group-text" id="inputGroup-sizing-md">Direccion de domicilio</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+                        </div>
+                </div>
+        </div>
 </div>

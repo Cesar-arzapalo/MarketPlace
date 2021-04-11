@@ -1,4 +1,4 @@
-*{
+/* *{
 
     padding: 0px;
 }
@@ -77,8 +77,16 @@ section{
 
 .clearfix{
     clear: both;
+} */
+.contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
 }
-
+.cuerpo-tipo-recepcion{
+    border: 1px red solid;
+    padding: 20px;
+}
 
 
 
