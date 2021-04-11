@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Categoria } from 'src/app/models/categoria.model';
 import { Pedido } from 'src/app/models/pedido.model';
 import { ProductoService } from 'src/app/services/producto.service';
@@ -17,6 +17,7 @@ export class CatalogoComponent implements OnInit {
   productos:Producto[];
   opciones: string[];
   carro: Pedido;
+  @Output() emitirCarro = new EventEmitter<Pedido>();
 
   constructor(private productosServices: ProductoService) { 
     this.categoriaActual= new Categoria("Energizantes",0);
@@ -57,6 +58,7 @@ export class CatalogoComponent implements OnInit {
     this.carro.productos=this.carro.productos.filter( p => p.producto.nombre!= product.producto.nombre)
     this.carro.productos.push(product)
     console.log(this.carro);
+    this.emitirCarro.emit(this.carro)
   }
 
 

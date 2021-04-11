@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6">
                 <button *ngIf="idPagina<3" class="btn btn-danger float-end"  (click)="navegar(idPagina+1,'derecha')">{{obtenerPaginacion(idPagina+1)}} <i class="fas fa-angle-right ms-1"> </i></button>
-                <button *ngIf="idPagina==3" class="btn btn-success float-end"  [routerLink]="['comprobante',0]">{{obtenerPaginacion(idPagina+1)}} <i class="fas fa-angle-right ms-1"> </i></button>
+                <button *ngIf="idPagina==3" class="btn btn-success float-end"  [routerLink]="['/comprobante',0]">{{obtenerPaginacion(idPagina+1)}} <i class="fas fa-angle-right ms-1"> </i></button>
             </div>
             
         </div>

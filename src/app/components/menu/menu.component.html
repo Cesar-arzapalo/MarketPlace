@@ -7,7 +7,44 @@
                 {{categoria.nombre}}
        </div>
         <div class="col-md-1 menu-carro menu-section ">
-            <a class="menu-categorias" onclick="console.log('hola')" > <i class="fas fa-shopping-cart"></i> <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
-        </div>    
+            <a class="menu-categorias" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" > <i class="fas fa-shopping-cart"></i> <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
+            
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Carro de compras</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">nombre</th>
+                                <th scope="col">cantidad</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- <tr  *ngFor="let producto of pedido.productos; let idx = index">
+                                <th scope="row">idx</th>
+                                <td>{{producto.producto.nombre}}</td>
+                                <td>{{producto.cantidad}}</td>
+                              </tr> -->
+                            </tbody>
+                          </table>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary"data-bs-dismiss="modal" (click)=navegar()>Comprar el pedido</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
     </div>
 </div>
