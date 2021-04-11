@@ -34,7 +34,7 @@
         </div>
         <div class="lista-productos">
             <div *ngFor="let p of productos">
-                <app-producto [producto]="p"></app-producto>
+                <app-producto [producto]="p" (emitirProductoSolicitado)="agregarProductoSoilicitado($event)"></app-producto>
             </div>
         </div>
     </div>

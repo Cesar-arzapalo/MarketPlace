@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Producto } from '../../models/producto.models';
+import { ProductoSolicitado } from '../../models/pedido.model';
 
 @Component({
   selector: 'app-producto',
@@ -8,6 +9,7 @@ import { Producto } from '../../models/producto.models';
 })
 export class ProductoComponent implements OnInit {
   @Input() producto!: Producto;
+  @Output() emitirProductoSolicitado= new EventEmitter<ProductoSolicitado>();
   cantidad: number;
   constructor() { 
     this.cantidad = 1;
@@ -27,6 +29,7 @@ export class ProductoComponent implements OnInit {
   };
 
   public agregar = () => {
-    
+    console.log("Producto " + this.producto.nombre + " agregado")
+    this.emitirProductoSolicitado.emit(new ProductoSolicitado(this.producto,this.cantidad))
   }
 }

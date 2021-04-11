@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Categoria } from 'src/app/models/categoria.model';
+import { Pedido } from 'src/app/models/pedido.model';
 import { ProductoService } from 'src/app/services/producto.service';
 import { Producto } from '../../models/producto.models';
+import { ProductoSolicitado } from '../../models/pedido.model';
 
 @Component({
   selector: 'app-catalogo',
@@ -14,6 +16,7 @@ export class CatalogoComponent implements OnInit {
   @Input() categoriaActual: Categoria;
   productos:Producto[];
   opciones: string[];
+  carro: Pedido;
 
   constructor(private productosServices: ProductoService) { 
     this.categoriaActual= new Categoria("Energizantes",0);
@@ -36,6 +39,7 @@ export class CatalogoComponent implements OnInit {
       new Producto(14,"Bebida Energizante Red Bull Lata 250 ml","Red Bull te brinda la energía necesaria para que cumplas",7.8,0,1,13,7,6.90,"cantidad","unid",["https://plazavea.vteximg.com.br/arquivos/ids/346868-1000-1000/1059327001.jpg?v=637292327800700000"],[]),
     ]
     this.obtenerProductos()
+    this.carro = new Pedido(new Date(),[])
   }
 
   ngOnInit(): void {
@@ -48,5 +52,12 @@ export class CatalogoComponent implements OnInit {
       this.productos=productos;
     })
   }
+
+  agregarProductoSoilicitado(product:ProductoSolicitado){
+    this.carro.productos=this.carro.productos.filter( p => p.producto.nombre!= product.producto.nombre)
+    this.carro.productos.push(product)
+    console.log(this.carro);
+  }
+
 
 }
