@@ -16,6 +16,13 @@ import { DetalleProductoComponent } from './pages/detalle-producto/detalle-produ
 import { AdministracionComponent } from './pages/administracion/administracion.component';
 
 import {HttpClientModule} from '@angular/common/http'
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { VentaComponent } from './pages/venta/venta.component';
+import { TipoRecepcionComponent } from './components/ventas/tipo-recepcion/tipo-recepcion.component';
+import { MetodoPagoComponent } from './components/ventas/metodo-pago/metodo-pago.component';
+import { TipoEntregaComponent } from './components/ventas/tipo-entrega/tipo-entrega.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +36,18 @@ import {HttpClientModule} from '@angular/common/http'
     NotFoundComponent,
     ProductoComponent,
     DetalleProductoComponent,
-    AdministracionComponent
+    AdministracionComponent,
+    VentaComponent,
+    TipoRecepcionComponent,
+    MetodoPagoComponent,
+    TipoEntregaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
     
   ],
   exports:[  ],

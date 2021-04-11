@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "emark-3b337": {
+      "hosting": {
+        "EMarket": [
+          "emark-3b337"
+        ]
+      }
+    }
+  }
+}

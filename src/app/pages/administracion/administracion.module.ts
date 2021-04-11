@@ -7,6 +7,10 @@ import { ProductosComponent } from './productos/productos.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ComponentsModule } from '../../components/components.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     UsuariosComponent,
@@ -17,7 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AdministracionRoutingModule,
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ]
 })
 export class AdministracionModule { }

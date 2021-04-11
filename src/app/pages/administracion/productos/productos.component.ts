@@ -18,12 +18,14 @@ export class ProductosComponent implements OnInit {
   constructor(private fb:FormBuilder, private productoService:ProductoService) { 
     console.log(12)
     this.camposImagenes=[new Campo("imagen","text")]
-    this.camposCaracteristica=[new Campo("nombre","text"),new Campo("descripcion","number")]
+    this.camposCaracteristica=[new Campo("nombre","text"),new Campo("descripcion","text")]
     // this.productosForm=fb.group({});
     this.productosForm=fb.group({
       nombre: ['',[Validators.required,Validators.maxLength(30)]],
       descripcion:['',[Validators.required,Validators.maxLength(512)]],
-      valorizacion:[0,[Validators.required,Validators.min(0),Validators.max(10)]],
+      idCategoria:[0,[Validators.required,Validators.min(0),Validators.max(20)]],
+      idProvedor:[0,[Validators.required,Validators.min(0)]],
+      valoracion:[0,[Validators.required,Validators.min(0),Validators.max(99999)]],
       visitas:[0,[Validators.required,Validators.min(0)]],
       precio:[0,[Validators.required,Validators.min(0)]],
       stock:[0,[Validators.required,Validators.min(0)]],
@@ -32,6 +34,8 @@ export class ProductosComponent implements OnInit {
       caracteristicas:fb.array([]),
       imagenes:fb.array([])
     });
+    this.productoService.cargarProductos().subscribe( () => console.log(this.productoService.productos,1));
+    
   }
 
   
@@ -75,9 +79,27 @@ export class ProductosComponent implements OnInit {
       title:'Espere por favor...'
     })
     Swal.showLoading ()
-    // this.productoService.getProductos().subscribe(resp =>{
-    //   console.log(resp)
-    // })
-    // this.productoService.insertarProducto();
+    var productoNuevo = new Producto(
+      1,this.productosForm.get("nombre")?.value,
+      this.productosForm.get("descripcion")?.value,
+      this.productosForm.get("valoracion")?.value,
+      this.productosForm.get("visitas")?.value,
+      this.productosForm.get("idProvedor")?.value,
+      this.productosForm.get("idCategoria")?.value,
+      this.productosForm.get("stock")?.value,
+      this.productosForm.get("precio")?.value,
+      this.productosForm.get("medida")?.value,
+      this.productosForm.get("unidad")?.value,
+      this.productosForm.get("imagenes")?.value,
+      this.productosForm.get("caracteristicas")?.value
+    )
+    console.log(productoNuevo);
+    this.productoService.agregarProducto(productoNuevo).then( () => {
+      Swal.fire({
+        title:'Producto añadido',
+        icon:'success'
+      })
+    })
+    .catch( () => console.error('Mensaje no enviado'));
   }
 }

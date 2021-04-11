@@ -17,7 +17,7 @@ export class ProductoComponent implements OnInit {
   }
 
   public aumentar = () => {
-    this.cantidad=(this.cantidad<this.producto.cantidad)?this.cantidad + 1:this.cantidad;
+    this.cantidad=(this.cantidad<this.producto.stock)?this.cantidad + 1:this.cantidad;
     console.log(this.cantidad);
   };
 

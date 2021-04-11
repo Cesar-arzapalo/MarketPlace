@@ -1,8 +1,3 @@
-interface ImagenReferencial{
-	id: Number,
-	data: any
-}
-
 interface DetalleTecnico{
         nombre: String,
     	descripcion: String
@@ -10,8 +5,11 @@ interface DetalleTecnico{
 
 export class Producto {
     constructor(public id: number,public nombre: string,public descripcion: string,
-                public valoracion: number, public idProveedor: number,public idCategoria: number,
-                public cantidad: number, public precioUnidad: number,  
-                public imagenes:ImagenReferencial[], public detalles: DetalleTecnico[]){
+                public valoracion: number, public visitas:number,
+                public idProveedor: number,public idCategoria: number,
+                public stock: number, public precioUnidad: number,
+                public medida: string,public unidad: string,  
+                public imagenes:string[], public detalles: DetalleTecnico[]){
     }
 }
+

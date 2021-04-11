@@ -4,9 +4,17 @@
 
 export const environment = {
   production: false,
-  backendCrudURL:"localhost:3000"
-};
-
+  backendCrudURL:"localhost:3000",
+  firebase: { 
+    apiKey: "AIzaSyCBg14wxYif5BTjkMkmY--BrYAtqJAtgAQ",
+    authDomain: "emark-af49a.firebaseapp.com",
+    projectId: "emark-af49a",
+    storageBucket: "emark-af49a.appspot.com",
+    messagingSenderId: "815800013340",
+    appId: "1:815800013340:web:865f7bf3b8302393f445d9",
+    measurementId: "G-RESV87CL5Z"
+  }
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

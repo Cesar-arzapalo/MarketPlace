@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Producto } from '../models/producto.models';
 import { map } from 'rxjs/operators';
+import { AngularFirestore, AngularFirestoreCollection  } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +12,26 @@ import { map } from 'rxjs/operators';
 export class ProductoService {
 
   url = `${environment.backendCrudURL}/products`
-  constructor(private http:HttpClient) { }
+  private productosColections!: AngularFirestoreCollection<Producto>;
+  public productos: Producto[];
 
-  getProductos = () =>{
-    return this.http.get(this.url)
+
+  constructor(private store: AngularFirestore, private authentication: AngularFireAuth) {
+    this.productos = []
+   }
+
+  cargarProductos(){
+    this.productosColections = this.store.collection<Producto>('producto', ref => ref.orderBy('nombre', 'asc').limitToLast(5));
+    console.log(this.productosColections.valueChanges())
+    return this.productosColections.valueChanges()
+            .pipe(map((arrayProductos: Producto[]) => {
+              console.log(1,arrayProductos);
+              this.productos = arrayProductos;
+            }));
   }
-  getProducto = (id:number) =>{
-    return this.http.get(`${this.url}`)
+
+  agregarProducto(producto: Producto){
+    return this.productosColections.add(producto);
   }
-  insertarProducto = (producto: Producto) => {
-    this.http.post(`${this.url}.json`,producto).pipe( map( (resp: any) => {
-      console.log(resp);
-      return resp.name;
-    }));
-  }
+
 }
