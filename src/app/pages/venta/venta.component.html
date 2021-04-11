@@ -1,4 +1,23 @@
-<p>venta works!</p>
-<app-tipo-entrega></app-tipo-entrega>
-<app-tipo-recepcion></app-tipo-recepcion>
-<app-metodo-venta></app-metodo-venta>
+
+<div class="venta row mt-3 mb-3">
+    <div class="col">
+        <div class="titulo-venta">Venta del pedido - {{pagina}}</div>
+
+        <div class="seccion-venta" [ngSwitch]="pagina">
+            <app-tipo-entrega *ngSwitchCase="'tipo de entrega'"></app-tipo-entrega>
+            <app-tipo-recepcion *ngSwitchCase="'tipo de recepcion'"></app-tipo-recepcion>
+            <app-metodo-pago *ngSwitchCase="'metodo de pago'"></app-metodo-pago>
+        </div>
+        <div class="navegacion-venta row">
+            <div class="col-md-6">
+                <button *ngIf="idPagina>1" class="btn btn-danger float-start" (click)="navegar(idPagina-1,'izquierda')"> <i class="fas fa-angle-left me-1"></i> {{obtenerPaginacion(idPagina-1)}}</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-danger float-end" [ngClass]="{'btn-success':idPagina===4}" (click)="navegar(idPagina+1,'derecha')">{{obtenerPaginacion(idPagina+1)}} <i class="fas fa-angle-right ms-1"> </i></button>
+            </div>
+            
+        </div>
+    </div>
+
+
+</div>
