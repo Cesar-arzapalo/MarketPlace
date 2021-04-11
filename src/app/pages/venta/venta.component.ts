@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Paginacion{
   id:number;
@@ -18,7 +19,7 @@ export class VentaComponent implements OnInit {
   paginacion: Paginacion[];
 
 
-  constructor() {
+  constructor(private router: Router) {
     this.pagina="tipo de recepcion";
     this.idPagina=1;
     this.paginacion=[{id:1,nombre:"tipo de recepcion"},{id:2,nombre:"tipo de entrega"}
@@ -43,7 +44,7 @@ export class VentaComponent implements OnInit {
   }
 
   finalizarCompra(){
-    
+    this.router.navigateByUrl(`/comprobante/${0}`)
   }
 
   obtenerPaginacion(id:number):string{

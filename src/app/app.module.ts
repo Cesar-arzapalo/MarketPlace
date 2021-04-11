@@ -19,10 +19,8 @@ import {HttpClientModule} from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { VentaComponent } from './pages/venta/venta.component';
-import { TipoRecepcionComponent } from './components/ventas/tipo-recepcion/tipo-recepcion.component';
-import { MetodoPagoComponent } from './components/ventas/metodo-pago/metodo-pago.component';
-import { TipoEntregaComponent } from './components/ventas/tipo-entrega/tipo-entrega.component';
+import { ComprobanteComponent } from './pages/comprobante/comprobante.component';
+import { VentaModule } from './pages/venta/venta.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,17 +35,15 @@ import { TipoEntregaComponent } from './components/ventas/tipo-entrega/tipo-entr
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
-    VentaComponent,
-    TipoRecepcionComponent,
-    MetodoPagoComponent,
-    TipoEntregaComponent
+    ComprobanteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    VentaModule
     
   ],
   exports:[  ],

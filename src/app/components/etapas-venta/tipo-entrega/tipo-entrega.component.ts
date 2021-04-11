@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tipo-entrega',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tipo-entrega.component.css']
 })
 export class TipoEntregaComponent implements OnInit {
-
-  constructor() { }
+  opcionesTipoEntrega:string[]; 
+  constructor() { 
+    this.opcionesTipoEntrega=["Entrega a domicilio","Entrega en puntos autorizados"]
+  }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Categoria } from 'src/app/models/categoria.model';
+import { ProductoService } from 'src/app/services/producto.service';
 import { Producto } from '../../models/producto.models';
 
 @Component({
@@ -14,7 +15,7 @@ export class CatalogoComponent implements OnInit {
   productos:Producto[];
   opciones: string[];
 
-  constructor() { 
+  constructor(private productosServices: ProductoService) { 
     this.categoriaActual= new Categoria("Energizantes",0);
     this.categoriasHijas = [];
     this.opciones = ["Marca","Presentacion","Contenido","Procedencia","Rango de precios"]
@@ -32,10 +33,20 @@ export class CatalogoComponent implements OnInit {
       new Producto(11,"Bebida Energizante Red Bull Lata 250 ml","Red Bull te brinda la energía necesaria para que cumplas",7.8,0,1,13,7,6.90,"cantidad","unid",["https://plazavea.vteximg.com.br/arquivos/ids/346868-1000-1000/1059327001.jpg?v=637292327800700000"],[]),
       new Producto(12,"Bebida Energizante Red Bull Lata 250 ml","Red Bull te brinda la energía necesaria para que cumplas",7.8,0,1,13,7,6.90,"cantidad","unid",["https://plazavea.vteximg.com.br/arquivos/ids/346868-1000-1000/1059327001.jpg?v=637292327800700000"],[]),
       new Producto(13,"Bebida Energizante Red Bull Lata 250 ml","Red Bull te brinda la energía necesaria para que cumplas",7.8,0,1,13,7,6.90,"cantidad","unid",["https://plazavea.vteximg.com.br/arquivos/ids/346868-1000-1000/1059327001.jpg?v=637292327800700000"],[]),
-      new Producto(14,"Bebida Energizante Red Bull Lata 250 ml","Red Bull te brinda la energía necesaria para que cumplas",7.8,0,1,13,7,6.90,"cantidad","unid",["https://plazavea.vteximg.com.br/arquivos/ids/346868-1000-1000/1059327001.jpg?v=637292327800700000"],[]),    ]
+      new Producto(14,"Bebida Energizante Red Bull Lata 250 ml","Red Bull te brinda la energía necesaria para que cumplas",7.8,0,1,13,7,6.90,"cantidad","unid",["https://plazavea.vteximg.com.br/arquivos/ids/346868-1000-1000/1059327001.jpg?v=637292327800700000"],[]),
+    ]
+    this.obtenerProductos()
   }
 
   ngOnInit(): void {
+  }
+
+  obtenerProductos(){
+    this.productosServices.cargarProductos().subscribe( () =>{
+      var productos: Producto[]=this.productosServices.productos
+      console.log(productos)
+      this.productos=productos;
+    })
   }
 
 }

@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MetodoPagoComponent implements OnInit {
 
-  constructor() { }
+  opcionesMetodoPago: string[]
+
+  constructor() { 
+    this.opcionesMetodoPago=["Tarjeta","Billetera Digital", "Monedero"]
+  }
 
   ngOnInit(): void {
   }

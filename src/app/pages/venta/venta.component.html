@@ -13,7 +13,8 @@
                 <button *ngIf="idPagina>1" class="btn btn-danger float-start" (click)="navegar(idPagina-1,'izquierda')"> <i class="fas fa-angle-left me-1"></i> {{obtenerPaginacion(idPagina-1)}}</button>
             </div>
             <div class="col-md-6">
-                <button class="btn btn-danger float-end" [ngClass]="{'btn-success':idPagina===4}" (click)="navegar(idPagina+1,'derecha')">{{obtenerPaginacion(idPagina+1)}} <i class="fas fa-angle-right ms-1"> </i></button>
+                <button *ngIf="idPagina<3" class="btn btn-danger float-end"  (click)="navegar(idPagina+1,'derecha')">{{obtenerPaginacion(idPagina+1)}} <i class="fas fa-angle-right ms-1"> </i></button>
+                <button *ngIf="idPagina==3" class="btn btn-success float-end"  [routerLink]="['comprobante',0]">{{obtenerPaginacion(idPagina+1)}} <i class="fas fa-angle-right ms-1"> </i></button>
             </div>
             
         </div>

@@ -9,7 +9,7 @@ export class Producto {
                 public idProveedor: number,public idCategoria: number,
                 public stock: number, public precioUnidad: number,
                 public medida: string,public unidad: string,  
-                public imagenes:string[], public detalles: DetalleTecnico[]){
+                public imagenesReferenciales:string[], public detalles: DetalleTecnico[]){
     }
 }
 

@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tipo-recepcion.component.css']
 })
 export class TipoRecepcionComponent implements OnInit {
-
-  constructor() { }
+  opcionesTipoRecepcion:string[]; 
+  constructor() { 
+    this.opcionesTipoRecepcion=["Entrega a domicilio","Entrega en puntos autorizados"]
+  }
 
   ngOnInit(): void {
   }
