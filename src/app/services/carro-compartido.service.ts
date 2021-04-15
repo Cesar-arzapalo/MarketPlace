@@ -5,17 +5,16 @@ import { Pedido } from '../models/pedido.model';
   providedIn: 'root'
 })
 export class CarroCompartidoService {
-  carro:Pedido
+  static carro:Pedido = new Pedido(new Date(), [])
   constructor() {
-    this.carro= new Pedido(new Date(), [])
    }
 
-   getCarro(){
-     return this.carro;
+   static getCarro(){
+     return CarroCompartidoService.carro;
    }
 
-   getProductosCarro(){
-     return this.carro.productos;
+   static getProductosCarro(){
+     return CarroCompartidoService.carro.productos;
    }
 
 }

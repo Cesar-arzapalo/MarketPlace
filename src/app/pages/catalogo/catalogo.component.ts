@@ -4,6 +4,7 @@ import { Pedido } from 'src/app/models/pedido.model';
 import { ProductoService } from 'src/app/services/producto.service';
 import { Producto } from '../../models/producto.models';
 import { ProductoSolicitado } from '../../models/pedido.model';
+import { CarroCompartidoService } from '../../services/carro-compartido.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -16,10 +17,8 @@ export class CatalogoComponent implements OnInit {
   @Input() categoriaActual: Categoria;
   productos:Producto[];
   opciones: string[];
-  carro: Pedido;
-  @Output() emitirCarro = new EventEmitter<Pedido>();
 
-  constructor(private productosServices: ProductoService) { 
+  constructor(private productosServices: ProductoService, private carroService: CarroCompartidoService) { 
     this.categoriaActual= new Categoria("Energizantes",0);
     this.categoriasHijas = [];
     this.opciones = ["Marca","Presentacion","Contenido","Procedencia","Rango de precios"]
@@ -40,7 +39,6 @@ export class CatalogoComponent implements OnInit {
       new Producto(14,"Bebida Energizante Red Bull Lata 250 ml","Red Bull te brinda la energía necesaria para que cumplas",7.8,0,1,13,7,6.90,"cantidad","unid",["https://plazavea.vteximg.com.br/arquivos/ids/346868-1000-1000/1059327001.jpg?v=637292327800700000"],[]),
     ]
     this.obtenerProductos()
-    this.carro = new Pedido(new Date(),[])
   }
 
   ngOnInit(): void {
@@ -55,10 +53,9 @@ export class CatalogoComponent implements OnInit {
   }
 
   agregarProductoSoilicitado(product:ProductoSolicitado){
-    this.carro.productos=this.carro.productos.filter( p => p.producto.nombre!= product.producto.nombre)
-    this.carro.productos.push(product)
-    console.log(this.carro);
-    this.emitirCarro.emit(this.carro)
+    CarroCompartidoService.getCarro().productos=CarroCompartidoService.getCarro().productos.filter( p => p.producto.nombre!= product.producto.nombre)
+    CarroCompartidoService.getCarro().productos.push(product)
+    console.log(CarroCompartidoService.getCarro());
   }
 
 

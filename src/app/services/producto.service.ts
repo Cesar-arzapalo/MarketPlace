@@ -31,7 +31,21 @@ export class ProductoService {
   }
 
   agregarProducto(producto: Producto){
-    return this.productosColections.add(producto);
+    return this.productosColections.add({
+      id:producto.id,
+      nombre: producto.nombre,
+      descripcion:producto.descripcion,
+      valoracion: producto.valoracion,
+      visitas: producto.visitas,
+      idProveedor:producto.idProveedor,
+      idCategoria: producto.idCategoria,
+      stock: producto.stock,
+      precioUnidad:producto.precioUnidad,
+      medida: producto.medida,
+      unidad: producto.unidad,
+      imagenesRefereciales:producto.imagenesRefereciales,
+      caracteristicas:producto.caracteristicas
+    });
   }
 
 }

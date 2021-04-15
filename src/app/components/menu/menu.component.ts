@@ -24,8 +24,8 @@ export class MenuComponent implements OnInit {
     this.router.navigateByUrl("/venta")
   }
   actualizarCarro(){
-    this.pedido.productos = this.carro.getProductosCarro();
-    console.log(this.carro.getCarro(),this.carro.getProductosCarro,"LADO MENU")
+    this.pedido.productos = CarroCompartidoService.getProductosCarro();
+    console.log(CarroCompartidoService.getCarro(),CarroCompartidoService.getProductosCarro,"LADO MENU")
     console.log(this.pedido)
   }
 
