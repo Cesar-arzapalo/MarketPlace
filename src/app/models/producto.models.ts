@@ -1,4 +1,4 @@
-interface DetalleTecnico{
+export interface Caracteristica{
         nombre: String,
     	descripcion: String
 }

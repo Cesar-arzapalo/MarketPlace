@@ -9,10 +9,10 @@
                 </tr>
             </thead>
             <tbody formArrayName="formTabla">
-                <tr *ngFor="let objeto of objetos; let i = index">
+                <tr *ngFor="let objeto of objetos; let i = index" [formGroupName]="i">
                     <th scope="row"> {{ i + 1 }} </th>
                     <td *ngFor="let campo of objeto.campos;let idx=index"> 
-                        <input class="form-control" [type]="campo.tipo" [placeholder]="'Ingrese un/una ' + campo.nombre" [formControlName]="i"  >
+                        <input class="form-control" [type]="campo.tipo" [placeholder]="'Ingrese un/una ' + campo.nombre" [formControlName]="campo.nombre"  >
                     </td>
                     <td>
                         <button class="btn btn-danger" (click)="borrarObjetoTabla(i)">Borrar</button>

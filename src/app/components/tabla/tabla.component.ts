@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Campo, ObjetoTabla } from 'src/app/models/objeto-tabla.model';
+import { CaracteristicaService } from '../../services/caracteristica.service';
 
 @Component({
   selector: 'app-tabla',
@@ -15,7 +16,7 @@ export class TablaComponent implements OnInit {
   formTabla :FormArray;
   form: FormGroup;
   index:number;
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder, private caracteristicaService:CaracteristicaService) { 
     this.objetos=[]
     this.formTabla=fb.array([])
     this.form=fb.group({
@@ -31,7 +32,11 @@ export class TablaComponent implements OnInit {
   anyadirObjetoTabla = () => {
     console.log(this.index,"index")
     this.objetos.push(new ObjetoTabla(this.index,this.campos))
-    this.formTabla.insert(this.index,this.fb.control('',[Validators.required]))
+    var group = this.fb.group({})
+    this.campos.map(campo =>{
+      group.addControl(campo.nombre,this.fb.control('',[Validators.required]))
+    })
+    this.formTabla.insert(this.index,group)
     console.log(this.formTabla)
     console.log(this.objetos)
     this.index+=1;

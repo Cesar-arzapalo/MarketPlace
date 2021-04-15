@@ -4,6 +4,8 @@ import { Campo } from 'src/app/models/objeto-tabla.model';
 import { Producto } from 'src/app/models/producto.models';
 import Swal from 'sweetalert2'
 import { ProductoService } from '../../../services/producto.service';
+import { Caracteristica } from '../../../models/producto.models';
+import { CaracteristicaService } from '../../../services/caracteristica.service';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -15,7 +17,7 @@ export class ProductosComponent implements OnInit {
   camposCaracteristica: Campo[]
   productosForm: FormGroup
 
-  constructor(private fb:FormBuilder, private productoService:ProductoService) { 
+  constructor(private fb:FormBuilder, private productoService:ProductoService, private caracteristicaService:CaracteristicaService) { 
     console.log(12)
     this.camposImagenes=[new Campo("imagen","text")]
     this.camposCaracteristica=[new Campo("nombre","text"),new Campo("descripcion","text")]
@@ -35,7 +37,7 @@ export class ProductosComponent implements OnInit {
       imagenes:fb.array([])
     });
     this.productoService.cargarProductos().subscribe( () => console.log(this.productoService.productos,1));
-    
+    this.caracteristicaService.generarColeccionCaracteristica();
   }
 
   
@@ -79,6 +81,16 @@ export class ProductosComponent implements OnInit {
       title:'Espere por favor...'
     })
     Swal.showLoading ()
+    var caracteristicas:string[] =[]
+    var caracteristicasPreprocesadas:Caracteristica[] =  this.productosForm.get("caracteristicas")?.value;
+    caracteristicasPreprocesadas.map( async (caracteristicaPre: Caracteristica) =>{
+      await this.caracteristicaService.agregarCaracteristica(caracteristicaPre).then(ref => {
+        console.log(ref.id);
+        caracteristicas.push(ref.id)
+      })
+      
+    })
+
     var productoNuevo = new Producto(
       1,this.productosForm.get("nombre")?.value,
       this.productosForm.get("descripcion")?.value,
@@ -91,7 +103,7 @@ export class ProductosComponent implements OnInit {
       this.productosForm.get("medida")?.value,
       this.productosForm.get("unidad")?.value,
       this.productosForm.get("imagenes")?.value,
-      this.productosForm.get("caracteristicas")?.value
+      caracteristicas
     )
     console.log(productoNuevo);
     this.productoService.agregarProducto(productoNuevo).then( () => {
