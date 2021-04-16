@@ -48,48 +48,59 @@
 
     </div>
 
+
     <div class="category-container" [ngStyle]="fontModal?{'display': 'block'} : {'display': 'none'} ">
-    
-          <div class="item">
-              <a href="/" class="item-tittle">
-                  <i class="fas fa-store"></i>
-                  <span>CATEGORÍAS</span>
-              </a>
-          </div>
-          <hr>
-          <div class="item" *ngFor="let item of categorias">
-              <a href="#" class="item-link">
-                <span class="text">{{item.nombre}}</span>
-              </a>
-              <div class="subitem">
-                <div class="tittle">
-                  <span class="text">asdasdas</span>
-                </div>
-                <div class="category-list">
-                  <div class="category-list-inner">
-                    <div class="item">
-                      <a href="#" class="item-link">
-                        <span class="text">{{item.nombre}}</span>
-                      </a>
-                      <div class="subcat">
-                        <div class="item-wrapper">
+
+          <ul class="category">
+
+              <li class="category-item">
+                  <a href="/" class="item-tittle">
+                      <i class="fas fa-store"></i>
+                      <span>CATEGORÍAS</span>
+                  </a>
+              </li>
+
+              <li class="category-item" *ngFor="let item of categorias">
+                  <a href="#" class="item-link">
+                    <span class="text">{{item.nombre}}</span>
+                  </a>
+
+
+                  <div class="category subitem">
+                      <div class="tittle">
+                        {{item.nombre}}
+                      </div>
+                      <!-- <div class="category-list">
+                        <div class="category-list-inner">
                           <div class="item">
                             <a href="#" class="item-link">
                               <span class="text">{{item.nombre}}</span>
                             </a>
+                            <div class="subcat">
+                              <div class="item-wrapper">
+                                <div class="item">
+                                  <a href="#" class="item-link">
+                                    <span class="text">{{item.nombre}}</span>
+                                  </a>
+                                </div>
+                
+                
+                              </div>
+                            </div>
                           </div>
-
-
+                
+                
                         </div>
-                      </div>
-                    </div>
-
+                      </div> -->
 
                   </div>
-                </div>
-              </div>
-          </div>
+
+
+              </li>
+
+          </ul>
     </div>
+
 
     <div id="cmodal" class="cmodal" [ngStyle]="fontModal?{'display': 'block'} : {'display': 'none'} " (click)="fontModal = !fontModal"></div>
 

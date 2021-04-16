@@ -11,7 +11,7 @@ import { CarroCompartidoService } from '../../services/carro-compartido.service'
 })
 export class MenuComponent implements OnInit {
   
-  fontModal = false
+  public  fontModal = false
   public categorias: Categoria[] = [
     { id: 1, nombre: 'Frutas y verduras'},
     { id: 2, nombre: 'Frutas y verduras'},

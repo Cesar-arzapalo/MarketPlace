@@ -62,17 +62,25 @@ a {
 .category-container {
     background-color: red;
     height: 100vh;
-    padding: 10px 20px;
     top: 0;
     left: 0;
     position: fixed;
     z-index: 20;
 }
+.category {
+    padding: 0;
+    position: relative;
+}
 
-.item {
+.category-item {
     display: block;
-    padding: 15px 0;
+    padding: 15px 60px 15px 15px;
     color: white;
+    
+}
+
+.category-item:hover {
+    background-color: rgb(195, 0, 0);
 }
 
 .item-tittle {
@@ -86,11 +94,34 @@ a {
     font-size: 16px;
 }
 
+.subitem {
+    position: absolute;
+    background-color: white;
+    left: 100%;
+    top: 60px;
+    display: none;
+    width: 40rem;
+    height: 100vh;
+
+}
+
+.category-item:hover > .subitem{
+    display: flex;
+}
+
+.tittle {
+    margin: 10px auto;
+    color: red;
+}
+
+
+
+/* MODAL */
 .cmodal {
     position: absolute;
     top: -60px;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(128, 128, 128, 0.493);
+    background-color: rgba(31, 31, 31, 0.705);
 }
