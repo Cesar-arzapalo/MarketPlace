@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
@@ -20,13 +19,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ComprobanteComponent } from './pages/comprobante/comprobante.component';
 import { VentaModule } from './pages/venta/venta.module';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MenuComponent,
     NavegacionComponent,
     CatalogoComponent,
     UsuarioComponent,
@@ -42,7 +41,8 @@ import { VentaModule } from './pages/venta/venta.module';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    VentaModule
+    VentaModule,
+    ComponentsModule
     
   ],
   exports:[  ],

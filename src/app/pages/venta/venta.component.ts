@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarroCompartidoService } from '../../services/carro-compartido.service';
+import { Pedido } from '../../models/pedido.model';
 
 interface Paginacion{
   id:number;
@@ -17,6 +19,7 @@ export class VentaComponent implements OnInit {
   pagina: string;
   idPagina: number;
   paginacion: Paginacion[];
+  pedido: Pedido;
 
 
   constructor(private router: Router) {
@@ -24,6 +27,8 @@ export class VentaComponent implements OnInit {
     this.idPagina=1;
     this.paginacion=[{id:1,nombre:"tipo de recepcion"},{id:2,nombre:"tipo de entrega"}
     ,{id:3,nombre:"metodo de pago"},{id:4,nombre:"finalizar venta"}]
+    this.pedido=CarroCompartidoService.carro;
+    console.log(this.pedido)
    }
 
   ngOnInit(): void {

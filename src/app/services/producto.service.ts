@@ -21,11 +21,9 @@ export class ProductoService {
    }
 
   cargarProductos(){
-    this.productosColections = this.store.collection<Producto>('producto', ref => ref.orderBy('nombre', 'asc'));
-    console.log(this.productosColections.valueChanges())
+    this.productosColections = this.store.collection<Producto>('producto', ref => ref.orderBy('nombre', 'asc').limit(10));
     return this.productosColections.valueChanges()
             .pipe(map((arrayProductos: Producto[]) => {
-              console.log(1,arrayProductos);
               this.productos = arrayProductos;
             }));
   }

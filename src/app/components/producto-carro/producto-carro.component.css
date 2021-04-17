@@ -1,0 +1,50 @@
+.producto-carro{
+    height: 60px;
+    background-color: #fff;
+    color: red;
+    border: solid red 1px;
+    font-size: 12px;
+}
+.centrado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centrado-verticalmente{
+    display: flex;
+    align-items: center;
+}
+
+.operador{
+    background-color: red;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 10px;
+    color: #fff !important;
+    margin: 1px;
+}
+
+.operador:hover{
+    font-size: 105%;
+}
+
+img{
+    height: 50px;
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.producto-carro:hover{
+    font-weight: normal!important;
+}
+
+.en-filas{
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+.producto-data{
+    width: 100%;
+}
