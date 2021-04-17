@@ -1,0 +1,22 @@
+<div class="row g-0 producto-carro">
+    <div class="col-md-2 centrado-verticalmente">
+        <img [src]="productoSolicitado.producto.imagenesRefereciales[0]" alt=""> 
+    </div>
+    <div class="col-md-7 centrado-verticalmente en-filas" >
+        <div class="centrado-verticalmente producto-data">
+            Nombre: {{productoSolicitado.producto.nombre | maxLength:15:" ..."}}
+        </div>
+        <div class="centrado-verticalmente producto-data">
+            Precio: S/{{productoSolicitado.producto.precioUnidad}}
+        </div>
+    </div>
+    <div class="col-md-3 centrado-verticalmente">
+        <div class="row">
+            <a class="col operador centrado" (click)="aumentar()"><i class="fas fa-plus"></i></a>
+            <div class="col">
+                {{productoSolicitado.cantidad}}
+            </div>
+            <a class="col operador centrado" (click)="disminuir()"><i class="fas fa-minus"></i></a>
+        </div>
+    </div>
+</div>

@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
@@ -21,16 +19,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ComprobanteComponent } from './pages/comprobante/comprobante.component';
 import { VentaModule } from './pages/venta/venta.module';
-import { AuthService } from './services/auth.service';
-import { AuthModule } from '@auth0/auth0-angular';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    SidebarComponent,
-    MenuComponent,
     NavegacionComponent,
     CatalogoComponent,
     UsuarioComponent,
@@ -48,10 +43,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     VentaModule,
-    AuthModule.forRoot({
-      domain: 'evison.us.auth0.com',
-      clientId: '0myVHs6gKKXzBsqx4LDE3DeWC9fa1rgi'
-    })
+    ComponentsModule
     
   ],
   exports:[  ],

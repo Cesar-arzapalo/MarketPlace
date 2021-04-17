@@ -24,7 +24,6 @@ export class CaracteristicaService {
 
   cargarCaracteristica(idCaracteristica: string){
     this.caracteristicasColections = this.store.collection<Caracteristica>('caracteristicas', ref => ref.orderBy('nombre', 'asc'));
-    console.log(this.caracteristicasColections.doc(idCaracteristica).get())
     return this.caracteristicasColections.doc(idCaracteristica).get().subscribe(caracteristica => {
         if (caracteristica.exists) {
             console.log(caracteristica.data());

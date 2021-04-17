@@ -1,50 +1,77 @@
 <div class="menu-emark">
     <div class="row menu-container ">
-        <div class="col-md-2 menu-section menu-selection">
-            <a class="menu-categorias" onclick="console.log('hola')" > CATEGORIA <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
+        <div class="col menu-section menu-selection">
+            <a class="menu-categorias"  (click)="fontModal = !fontModal" > CATEGORIA <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
         </div>
-        <div *ngFor="let categoria of categorias" class="col-md-1 menu-section ">
+        <div *ngFor="let categoria of categorias" class="col menu-section ">
                 {{categoria.nombre}}
        </div>
-        <div class="col-md-1 menu-carro menu-section ">
-            <a class="menu-categorias" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" (click)="actualizarCarro()" > <i class="fas fa-shopping-cart"></i> <i class="fas fa-angle-down espaciado-izquierdo"></i></a> 
-            
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="staticBackdropLabel">Carro de compras</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">nombre</th>
-                                <th scope="col">cantidad</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr  *ngFor="let producto of pedido.productos; let idx = index">
-                                <th scope="row">idx</th>
-                                <td>{{producto.producto.nombre}}</td>
-                                <td>{{producto.cantidad}}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        <div>
-
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary"data-bs-dismiss="modal" (click)=navegar()>Comprar el pedido</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
+        <app-carro class=" col menu-carro menu-section"></app-carro>
+         
 
     </div>
+
+
+    <div class="category-container" [ngStyle]="fontModal?{'display': 'block'} : {'display': 'none'} ">
+
+        <ul class="category">
+
+            <li class="category-item">
+                <a href="/" class="item-tittle">
+                    <i class="fas fa-store"></i>
+                    <span>CATEGORÍAS</span>
+                </a>
+            </li>
+
+            <li class="category-item" *ngFor="let item of categorias">
+                <a href="#" class="item-link">
+                    <span class="text">{{item.nombre}}</span>
+                </a>
+
+
+                <div class="category subitem">
+                    <div class="tittle">
+                        <span>{{item.nombre}}</span>
+                    </div>
+
+
+                    <div class="category-list">
+                        <div class="category-list-inner">
+
+                            
+                            <div class="item" *ngFor="let item of item.categoriasHijas">
+                                <a href="#" class="item-link2">
+                                    <span class="text">{{item.nombre}}</span>
+                                </a>
+                                <div class="subcat">
+                                    <div class="item-wrapper">
+
+                                        <div class="item" *ngFor="let item2 of item.categoriasHijas">
+                                            <a href="#" class="item-link3">
+                                                <span class="text">{{item2.nombre}}</span>
+                                            </a>
+                                        </div>
+                    
+                                    </div>
+                                </div>
+                            </div>
+
+                
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+            </li>
+
+        </ul>
+    </div>
+
+
+    <div id="cmodal" class="cmodal" [ngStyle]="fontModal?{'display': 'block'} : {'display': 'none'} " (click)="fontModal = !fontModal"></div>
+
 </div>

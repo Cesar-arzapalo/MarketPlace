@@ -16,3 +16,4 @@ import { EtapasVentaModule } from '../../components/etapas-venta/etapas-venta.mo
   exports:[VentaComponent]
 })
 export class VentaModule { }
+

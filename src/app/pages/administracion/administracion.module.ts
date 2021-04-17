@@ -10,12 +10,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+import { EntidadesComponent } from './entidades/entidades.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 @NgModule({
   declarations: [
     UsuariosComponent,
     ProductosComponent,
     CategoriasComponent,
+    EntidadesComponent,
+    PerfilComponent,
+    EstadisticasComponent,
   ],
   imports: [
     CommonModule,

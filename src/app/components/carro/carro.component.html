@@ -1,0 +1,40 @@
+<div class="dropdown carro">
+
+    <a class="boton-carro dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"
+        type="button" (click)="obtenerCarro()"> <i class="fas fa-shopping-cart"></i> <i
+            class="fas fa-angle-down espaciado-izquierdo"></i></a>
+    <ul class="dropdown-menu dropdown-menu-dark dropdown-carro" aria-labelledby="dropdownMenuButton2">
+        <li class="cabecera-dropdown centrado-vertical bordes-iniciales-redondeados"> Carro de compras Emark</li>
+        <li *ngFor="let producto of pedido.productos; let idx = index">
+            <app-producto-carro [productoSolicitado]="producto" [indice]="idx"
+                (emitirProductoCarro)="actualizarCarro($event)"></app-producto-carro>
+        </li>
+        <li class="opciones-dropdown bordes-finales-redondeados">
+            <a class="boton-opciones centrado-vertical" (click)="navegar()"> Realizar pedido </a>
+        </li>
+    </ul>
+
+</div>
+
+<!-- 
+ <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">nombre</th>
+                                <th scope="col">cantidad</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr  *ngFor="let producto of pedido.productos; let idx = index">
+                                <th scope="row">idx</th>
+                                <td>{{producto.producto.nombre}}</td>
+                                <td>{{producto.cantidad}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary"data-bs-dismiss="modal" (click)=navegar()>Comprar el pedido</button>
+   -->

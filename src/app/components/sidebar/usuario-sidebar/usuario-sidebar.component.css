@@ -1,0 +1,14 @@
+.usuario-sidebar{
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+}
+
+.imagen-usuario{
+    width: 30%;
+    border: 40px #fff solid;
+}
+.nombre-usuario{
+    color: #fff;
+    font-weight: bold;
+}
