@@ -11,12 +11,13 @@ import { CategoriaArbol } from 'src/app/models/categoriaArbol.model';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  categorias: CategoriaArbol[];
+  categorias: CategoriaArbol[]=[];
   pedido: Pedido;
-  constructor(private router:Router, private carro: CarroCompartidoService, private categoriaService:CategoriaService) {
-    this.categoriaService.cargarCategorias().subscribe()
-    this.categorias=this.categoriaService.categorias;
+  constructor(private router:Router, private categoriaService:CategoriaService) {
     this.pedido = new Pedido(new Date(),[])
+    this.categoriaService.cargarCategorias().subscribe(()=>{
+      this.categorias=this.categoriaService.categorias;
+    })
   }
 
   ngOnInit(): void {
@@ -27,8 +28,6 @@ export class MenuComponent implements OnInit {
   }
   actualizarCarro(){
     this.pedido.productos = CarroCompartidoService.getProductosCarro();
-    console.log(CarroCompartidoService.getCarro(),CarroCompartidoService.getProductosCarro,"LADO MENU")
-    console.log(this.pedido)
   }
 
 }

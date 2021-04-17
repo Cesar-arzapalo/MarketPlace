@@ -19,7 +19,8 @@ export class CategoriaService {
   cargarCategorias() {
     this.categoriaColections = this.store.collection<Categoria>('categoria', ref => ref.orderBy('nombre', 'asc'));
     return this.categoriaColections.valueChanges()
-      .pipe(map((arrayCategoria: any[]) => {
+      .pipe(map((arrayCategoria: Categoria[]) => {
+        console.log(arrayCategoria)
         arrayCategoria.map(categoria => {
           if (categoria.raiz) {
             this.categorias.push(this.cargarHijas(new CategoriaArbol(categoria.nombre, []), categoria))
@@ -32,11 +33,11 @@ export class CategoriaService {
 
   cargarCategoria(idCategoria: string) {
     this.categoriaColections = this.store.collection<Categoria>('categoria', ref => ref.orderBy('nombre', 'asc'));
-    console.log(this.categoriaColections.doc(idCategoria).get())
     return this.categoriaColections.doc(idCategoria).get();
   }
 
   cargarHijas(raiz: CategoriaArbol, raizReferecia: Categoria): CategoriaArbol {
+    console.log(raizReferecia)
     if (raizReferecia.idHijas.length !== 0) {
       raizReferecia.idHijas.map(referenciaHija => {
         this.cargarCategoria(referenciaHija).subscribe((categoria) => {
