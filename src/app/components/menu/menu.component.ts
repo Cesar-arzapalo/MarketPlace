@@ -11,18 +11,37 @@ import { CarroCompartidoService } from '../../services/carro-compartido.service'
 })
 export class MenuComponent implements OnInit {
   
-  public  fontModal = false
-  public categorias: Categoria[] = [
-    { id: 1, nombre: 'Frutas y verduras'},
-    { id: 2, nombre: 'Frutas y verduras'},
-    { id: 3, nombre: 'Frutas y verduras'},
-    { id: 4, nombre: 'Frutas y verduras'},
-    { id: 5, nombre: 'Frutas y verduras'},
-    { id: 6, nombre: 'Frutas y verduras'},
-    { id: 7, nombre: 'Frutas y verduras'},
-    { id: 8, nombre: 'Frutas y verduras'},
-    { id: 9, nombre: 'Frutas y verduras'},
-    { id: 10, nombre: 'Frutas y verduras'},
+  public  fontModal = true
+  public categorias= [
+    { 
+        id: 1,
+        nombre: 'Bodegas',
+        hijos: [
+            { 
+                id: 11, 
+                nombre: 'frutas',
+                hijos: [
+                    { id: 111, nombre: 'frutas duces' },
+                    { id: 112, nombre: 'frutas semidulces' },
+                    { id: 113, nombre: 'frutas acidas' },
+                    { id: 114, nombre: 'frutas semiacidas' },
+                    { id: 114, nombre: 'frutas neutras' },
+                ]
+            },
+            { id: 12, nombre:'verduras'},
+            { id: 13, nombre:'menestras'},
+            { id: 14, nombre:'tuberculos'},
+        ],
+    },
+    { id: 2, nombre: 'Abarrotes'},
+    { id: 3, nombre: 'Electrodomesticos'},
+    { id: 4, nombre: 'Tecnología'},
+    { id: 5, nombre: 'Limpieza'},
+    { id: 6, nombre: 'Libros'},
+    { id: 7, nombre: 'Organizadores'},
+    { id: 8, nombre: 'Utiles escolares'},
+    { id: 9, nombre: 'Higiene y aseo'},
+    { id: 10, nombre: 'Deportes'},
     { id: 11, nombre: 'Frutas y verduras'},
     { id: 12, nombre: 'Frutas y verduras'},
     { id: 13, nombre: 'Frutas y verduras'},
@@ -32,7 +51,6 @@ export class MenuComponent implements OnInit {
 
   pedido: Pedido;
   constructor(private router:Router, private carro: CarroCompartidoService) {
-    this.categorias=[{nombre:"Abarrotes", id:1}, {nombre:"Electrodomesticos", id:2}, {nombre:"Tecnología", id:3}, {nombre:"Limpieza", id:4},{nombre:"Libros", id:5},{nombre:"Organizadores", id:6},{nombre:"Utiles escolares", id:7},{nombre:"Higiene y aseo", id:8},{nombre:"Deportes", id:9}]
     this.pedido = new Pedido(new Date(),[])
   }
 

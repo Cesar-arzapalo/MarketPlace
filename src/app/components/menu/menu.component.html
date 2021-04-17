@@ -51,54 +51,61 @@
 
     <div class="category-container" [ngStyle]="fontModal?{'display': 'block'} : {'display': 'none'} ">
 
-          <ul class="category">
+        <ul class="category">
 
-              <li class="category-item">
-                  <a href="/" class="item-tittle">
-                      <i class="fas fa-store"></i>
-                      <span>CATEGORÍAS</span>
-                  </a>
-              </li>
+            <li class="category-item">
+                <a href="/" class="item-tittle">
+                    <i class="fas fa-store"></i>
+                    <span>CATEGORÍAS</span>
+                </a>
+            </li>
 
-              <li class="category-item" *ngFor="let item of categorias">
-                  <a href="#" class="item-link">
+            <li class="category-item" *ngFor="let item of categorias">
+                <a href="#" class="item-link">
                     <span class="text">{{item.nombre}}</span>
-                  </a>
+                </a>
 
 
-                  <div class="category subitem">
-                      <div class="tittle">
-                        {{item.nombre}}
-                      </div>
-                      <!-- <div class="category-list">
+                <div class="category subitem">
+                    <div class="tittle">
+                        <span>{{item.nombre}}</span>
+                    </div>
+
+
+                    <div class="category-list">
                         <div class="category-list-inner">
-                          <div class="item">
-                            <a href="#" class="item-link">
-                              <span class="text">{{item.nombre}}</span>
-                            </a>
-                            <div class="subcat">
-                              <div class="item-wrapper">
-                                <div class="item">
-                                  <a href="#" class="item-link">
+
+                            
+                            <div class="item" *ngFor="let item of item.hijos">
+                                <a href="#" class="item-link2">
                                     <span class="text">{{item.nombre}}</span>
-                                  </a>
+                                </a>
+                                <div class="subcat">
+                                    <div class="item-wrapper">
+
+                                        <div class="item" *ngFor="let item2 of item.hijos">
+                                            <a href="#" class="item-link3">
+                                                <span class="text">{{item2.nombre}}</span>
+                                            </a>
+                                        </div>
+                    
+                                    </div>
                                 </div>
-                
-                
-                              </div>
                             </div>
-                          </div>
-                
+
                 
                         </div>
-                      </div> -->
-
-                  </div>
+                    </div>
 
 
-              </li>
 
-          </ul>
+
+                </div>
+
+
+            </li>
+
+        </ul>
     </div>
 
 

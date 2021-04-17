@@ -62,6 +62,7 @@ a {
 .category-container {
     background-color: red;
     height: 100vh;
+    min-width: 300px;
     top: 0;
     left: 0;
     position: fixed;
@@ -99,9 +100,11 @@ a {
     background-color: white;
     left: 100%;
     top: 60px;
+    padding: 15px;
     display: none;
-    width: 40rem;
+    width: 50rem;
     height: 100vh;
+    flex-direction: column;
 
 }
 
@@ -109,10 +112,45 @@ a {
     display: flex;
 }
 
+
+/* sub menu stylos*/
 .tittle {
-    margin: 10px auto;
-    color: red;
+    margin: 7px 0;
 }
+
+.tittle span {
+    color: red;
+    font-weight: 600;
+    font-size: 25px;
+    padding: 10px 0;
+}
+
+.category-list-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    padding: 15px 0;
+}
+
+.category-list-inner > .item {
+    margin: 0 10px 12px 0;
+    padding: 7px 0;
+}
+
+/* stylos a los pequeños bloques */
+.subcat-item {
+    
+}
+.item-link2 .text {
+   color: red;
+   font-size: 1.1em;
+}
+
+.item-link3 .text {
+   color: gray;
+   font-size: 1.1em;
+}
+
+
 
 
 
