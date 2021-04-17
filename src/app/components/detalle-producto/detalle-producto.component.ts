@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Certificate } from 'crypto';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleProductoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private detalle:ProductoService) { 
+    this.obtener_producto()
+  }
 
   ngOnInit(): void {
   }
+  
+  obtener_producto(){
+    console.log(this.detalle.cargarProducto("5").subscribe())
+
+  }
+
 
 }
