@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   }); 
   }
-
+//sadasdsad
   goToLink(url:any){
     this.router.navigate([url]);
   }
