@@ -19,7 +19,7 @@ export class CatalogoComponent implements OnInit {
   opciones: string[];
 
   constructor(private productosServices: ProductoService, private carroService: CarroCompartidoService) { 
-    this.categoriaActual= new Categoria("Energizantes",0);
+    this.categoriaActual= new Categoria("Energizantes",[]);
     this.categoriasHijas = [];
     this.opciones = ["Marca","Presentacion","Contenido","Procedencia","Rango de precios"]
     this.productos = [

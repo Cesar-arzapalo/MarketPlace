@@ -1,11 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { Producto } from '../models/producto.models';
 import { map } from 'rxjs/operators';
-import { AngularFirestore, AngularFirestoreCollection  } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Categoria } from '../models/categoria.model';
+import { CategoriaArbol } from '../models/categoriaArbol.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,27 +10,50 @@ import { Categoria } from '../models/categoria.model';
 export class CategoriaService {
 
   private categoriaColections!: AngularFirestoreCollection<Categoria>;
-  public categorias: Categoria[];
-
+  public categorias: CategoriaArbol[];
 
   constructor(private store: AngularFirestore) {
     this.categorias = []
-   }
-
-  cargarProductos(){
-    this.categoriaColections = this.store.collection<Categoria>('categoria', ref => ref.orderBy('nombre', 'asc'));
-    console.log(this.categoriaColections.valueChanges())
-    return this.categoriaColections.valueChanges()
-            .pipe(map((arrayCategoria: Categoria[]) => {
-              console.log(1,arrayCategoria);
-              this.categorias = arrayCategoria;
-            }));
   }
 
-  agregarProducto(cateogira: Categoria){
+  cargarCategorias() {
+    this.categoriaColections = this.store.collection<Categoria>('categoria', ref => ref.orderBy('nombre', 'asc'));
+    return this.categoriaColections.valueChanges()
+      .pipe(map((arrayCategoria: any[]) => {
+        arrayCategoria.map(categoria => {
+          if (categoria.raiz) {
+            this.categorias.push(this.cargarHijas(new CategoriaArbol(categoria.nombre, []), categoria))
+            console.log(this.categorias)
+          }
+        })
+
+      }));
+  }
+
+  cargarCategoria(idCategoria: string) {
+    this.categoriaColections = this.store.collection<Categoria>('categoria', ref => ref.orderBy('nombre', 'asc'));
+    console.log(this.categoriaColections.doc(idCategoria).get())
+    return this.categoriaColections.doc(idCategoria).get();
+  }
+
+  cargarHijas(raiz: CategoriaArbol, raizReferecia: Categoria): CategoriaArbol {
+    if (raizReferecia.idHijas.length !== 0) {
+      raizReferecia.idHijas.map(referenciaHija => {
+        this.cargarCategoria(referenciaHija).subscribe((categoria) => {
+          if (categoria.exists) {
+            raiz.categoriasHijas.push(this.cargarHijas(new CategoriaArbol(categoria.data()!.nombre,[]),categoria.data()!))
+          }
+        });
+      })
+
+    }
+    return raiz
+  }
+
+  agregarCategoria(categoria: Categoria) {
     return this.categoriaColections.add({
-      id:cateogira.id,
-      nombre: cateogira.nombre      
+      nombre: categoria.nombre,
+      idHijas: categoria.idHijas
     });
   }
 

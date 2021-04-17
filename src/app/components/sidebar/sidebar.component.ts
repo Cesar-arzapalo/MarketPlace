@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { OpcionSidebar} from '../../models/opcion-sidebar.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor() { }
+  @Input() opciones!: OpcionSidebar[];
+  constructor() { 
+  }
 
   ngOnInit(): void {
+
   }
 
 }
