@@ -4,6 +4,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { VentaComponent } from './pages/venta/venta.component';
 import { ComprobanteComponent } from './pages/comprobante/comprobante.component';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
 
 const routes: Routes = [
   {path:"catalogo", component:CatalogoComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:"venta",  component:VentaComponent},
   {path:"comprobante/:id",component:ComprobanteComponent},
   {path:"not-found",  component:NotFoundComponent},
+  {path:"catalogo/:id", component:DetalleProductoComponent},
   {path: "**", pathMatch:"full", redirectTo:"/catalogo"}
 ];
 
