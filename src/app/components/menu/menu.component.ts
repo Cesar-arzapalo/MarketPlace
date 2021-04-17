@@ -13,6 +13,8 @@ import { CategoriaArbol } from 'src/app/models/categoriaArbol.model';
 export class MenuComponent implements OnInit {
   categorias: CategoriaArbol[];
   pedido: Pedido;
+  public  fontModal = true
+  
   constructor(private router:Router, private carro: CarroCompartidoService, private categoriaService:CategoriaService) {
     this.categoriaService.cargarCategorias().subscribe()
     this.categorias=this.categoriaService.categorias;
