@@ -1,0 +1,33 @@
+.login-form {
+    color: #161616;
+    background-color: transparent;
+    padding: 30px;
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .login-form {
+        padding: 15px;
+    }
+}
+
+.login-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.login-form input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #565f69;
+    border-radius: 0;
+    line-height: 23px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: text-color;
+    margin-bottom: 15px;
+    color: #000 !important;
+}

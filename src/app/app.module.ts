@@ -21,6 +21,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ComprobanteComponent } from './pages/comprobante/comprobante.component';
 import { VentaModule } from './pages/venta/venta.module';
+import { AuthService } from './services/auth.service';
+import { AuthModule } from '@auth0/auth0-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,8 @@ import { VentaModule } from './pages/venta/venta.module';
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
-    ComprobanteComponent
+    ComprobanteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,11 @@ import { VentaModule } from './pages/venta/venta.module';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    VentaModule
+    VentaModule,
+    AuthModule.forRoot({
+      domain: 'evison.us.auth0.com',
+      clientId: '0myVHs6gKKXzBsqx4LDE3DeWC9fa1rgi'
+    })
     
   ],
   exports:[  ],
