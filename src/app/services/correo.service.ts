@@ -12,15 +12,12 @@ export class CorreoService {
   }
 
   enviarCorreo(dest:string,user:string,asunt:string,mns:string){
-    this.http.post(this.url, {
+    return this.http.post(this.url, {
       destinatario: dest,
       username: user,
       asunto: asunt,
       mensaje: mns
-    }).pipe( map( (resp: any) => {
-      console.log(resp);
-      return resp.name;
-    }));
+    });
   }
 
 

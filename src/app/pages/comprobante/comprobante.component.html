@@ -44,7 +44,7 @@
         </div>
         <div class="navegacion-comprobante row">
             <div class="col-md-6">
-                <button class="btn btn-secondary" (click)="correoService.enviarCorreo('minorin.sayakan@gmail.com','User','Envio de boleta de pago - Emark','Gracias por comprar en Emark')"> Generar Comprobante electronico</button>
+                <button class="btn btn-secondary" (click)="enviarCorreo()"> Generar Comprobante electronico</button>
             </div>
             <div class="col-md-6">
                 <button class="btn btn-primary float-end"[routerLink]="['/catalogo']"> Volver al catalogo</button>
