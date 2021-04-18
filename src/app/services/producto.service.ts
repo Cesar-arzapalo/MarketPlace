@@ -33,14 +33,7 @@ export class ProductoService {
   cargarProducto(idProducto:string){
     this.productosColections = this.store.collection<Producto>('producto', ref => ref.orderBy('nombre', 'asc'));
     console.log(this.productosColections.doc(idProducto).get())
-    return this.productosColections.doc(idProducto).get().subscribe(caracteristica => {
-        if (caracteristica.exists) {
-            console.log(caracteristica.data());
-            return caracteristica.data();
-        } else {
-            return 'la caracteristica no existe';
-        }
-    });
+    return this.productosColections.doc(idProducto).get();
   }
 
   agregarProducto(producto: Producto){
