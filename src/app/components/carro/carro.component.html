@@ -9,8 +9,13 @@
             <app-producto-carro [productoSolicitado]="producto" [indice]="idx"
                 (emitirProductoCarro)="actualizarCarro($event)"></app-producto-carro>
         </li>
-        <li class="opciones-dropdown bordes-finales-redondeados">
-            <a class="boton-opciones centrado-vertical" (click)="navegar()"> Realizar pedido </a>
+        <li class="opciones-dropdown bordes-finales-redondeados row g-0">
+            <div class="col centrado-vertical">
+                Monto Total: S/ {{montoTotal}}
+            </div>
+            <div class="col fila-inversa ">
+                <a class="boton-opciones centrado-vertical" (click)="navegar()"> Realizar pedido </a>
+            </div>
         </li>
     </ul>
 

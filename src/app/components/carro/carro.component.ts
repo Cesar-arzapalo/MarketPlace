@@ -12,9 +12,11 @@ import { ProductoCarro } from '../../models/producto-carro.model';
 export class CarroComponent implements OnInit {
 
   pedido: Pedido;
+  montoTotal:Number;
 
   constructor(private router:Router) { 
     this.pedido = CarroCompartidoService.getCarro()
+    this.montoTotal=CarroCompartidoService.getMonto();
 
   }
 
@@ -24,10 +26,13 @@ export class CarroComponent implements OnInit {
     this.router.navigateByUrl("/venta")
   }
   actualizarCarro(productoCarro: ProductoCarro){
+    CarroCompartidoService.getCarro().productos[productoCarro.idProductoCarro]=productoCarro.productoSolicitado;
     this.pedido.productos[productoCarro.idProductoCarro]=productoCarro.productoSolicitado;
+    CarroCompartidoService.actualizarMonto();
+    this.montoTotal=CarroCompartidoService.getMonto();
   }
   obtenerCarro(){
-    
+    this.montoTotal=CarroCompartidoService.getMonto();
   }
 
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VentaComponent } from './venta.component';
 import { RouterModule } from '@angular/router';
 import { EtapasVentaModule } from '../../components/etapas-venta/etapas-venta.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 
 
@@ -11,7 +12,8 @@ import { EtapasVentaModule } from '../../components/etapas-venta/etapas-venta.mo
   imports: [
     CommonModule,
     EtapasVentaModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ],
   exports:[VentaComponent]
 })

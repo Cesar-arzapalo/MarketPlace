@@ -6,6 +6,7 @@ import { Pedido } from '../models/pedido.model';
 })
 export class CarroCompartidoService {
   static carro:Pedido = new Pedido(new Date(), [])
+  static monto: Number = 0;
   constructor() {
    }
 
@@ -16,5 +17,12 @@ export class CarroCompartidoService {
    static getProductosCarro(){
      return CarroCompartidoService.carro.productos;
    }
+   static actualizarMonto(){
+    CarroCompartidoService.monto = CarroCompartidoService.carro.getMontoTotal()
+   } 
+
+   static getMonto(){
+    return CarroCompartidoService.monto;
+  }
 
 }

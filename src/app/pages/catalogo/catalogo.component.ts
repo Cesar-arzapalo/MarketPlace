@@ -35,12 +35,14 @@ export class CatalogoComponent implements OnInit {
     this.productosServices.cargarProductos().subscribe( () =>{
       var productos: Producto[]=this.productosServices.productos
       this.productos=productos;
+      console.log(this.productos[23])
     })
   }
 
   agregarProductoSoilicitado(product:ProductoSolicitado){
     CarroCompartidoService.getCarro().productos=CarroCompartidoService.getCarro().productos.filter( p => p.producto.nombre!= product.producto.nombre)
     CarroCompartidoService.getCarro().productos.push(product)
+    CarroCompartidoService.actualizarMonto();
     console.log(CarroCompartidoService.getCarro());
   }
 
