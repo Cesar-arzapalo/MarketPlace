@@ -24,6 +24,7 @@ import { VentaModule } from './pages/venta/venta.module';
 import { AuthService } from './services/auth.service';
 import { AuthModule } from '@auth0/auth0-angular';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     DetalleProductoComponent,
     AdministracionComponent,
     ComprobanteComponent,
+   
 
   ],
   imports: [
@@ -50,7 +52,9 @@ import { AuthModule } from '@auth0/auth0-angular';
     VentaModule,
     AuthModule.forRoot({
       domain: 'evison.us.auth0.com',
-      clientId: '0myVHs6gKKXzBsqx4LDE3DeWC9fa1rgi'
+      clientId: '0myVHs6gKKXzBsqx4LDE3DeWC9fa1rgi',
+      cacheLocation:'localstorage',
+      useRefreshTokens:true
     })
     
   ],
