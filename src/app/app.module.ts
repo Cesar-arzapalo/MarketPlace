@@ -22,6 +22,7 @@ import { ComponentsModule } from './components/components.module';
 import { ComprobanteModule } from './pages/comprobante/comprobante.module';
 import { PipesModule } from './pipes/pipes.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,11 @@ import { PipesModule } from './pipes/pipes.module';
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
+<<<<<<< HEAD
+=======
+    ComprobanteComponent,
+   
+>>>>>>> evison
 
   ],
   imports: [
@@ -43,9 +49,18 @@ import { PipesModule } from './pipes/pipes.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     VentaModule,
+<<<<<<< HEAD
     ComprobanteModule,
     ComponentsModule,
     PipesModule
+=======
+    AuthModule.forRoot({
+      domain: 'aptir.auth0.com',
+      clientId: 'vT3PBjnZFRcgh3Ri5gHETKSQdOVxdaS9',
+      cacheLocation:'localstorage',
+      useRefreshTokens:true
+    })
+>>>>>>> evison
     
   ],
   exports:[  ],

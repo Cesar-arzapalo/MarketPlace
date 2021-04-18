@@ -22,5 +22,6 @@ import { LoginComponent } from './login/login.component';
     ComponentsModule,
     ReactiveFormsModule
   ]
+  
 })
 export class UsuarioModule { }
