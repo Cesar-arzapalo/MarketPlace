@@ -51,8 +51,8 @@ import { AuthModule } from '@auth0/auth0-angular';
     AngularFirestoreModule,
     VentaModule,
     AuthModule.forRoot({
-      domain: 'evison.us.auth0.com',
-      clientId: '0myVHs6gKKXzBsqx4LDE3DeWC9fa1rgi',
+      domain: 'aptir.auth0.com',
+      clientId: 'vT3PBjnZFRcgh3Ri5gHETKSQdOVxdaS9',
       cacheLocation:'localstorage',
       useRefreshTokens:true
     })
