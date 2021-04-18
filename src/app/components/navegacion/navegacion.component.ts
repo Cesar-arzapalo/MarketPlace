@@ -12,7 +12,7 @@ export class NavegacionComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<string>();
   constructor() { 
     this.ruta = ""
-    this.navegacion = ['Catalogo','Bebidas','Regeneradoras',"Energizantes"]
+    this.navegacion = ['Catalogo']
     this.actualizarNavegacion()
   }
 

@@ -22,7 +22,7 @@ export class CatalogoComponent implements OnInit {
     private productosServices: ProductoService, 
     private carroService: CarroCompartidoService) 
     { 
-    this.categoriaActual= new Categoria("Energizantes",[]);
+    this.categoriaActual= new Categoria("Catalogo",[]);
     this.categoriasHijas = [];
     this.opciones = ["Marca","Presentacion","Contenido","Procedencia","Rango de precios"]
     this.productos = []
@@ -36,7 +36,6 @@ export class CatalogoComponent implements OnInit {
     this.productosServices.cargarProductos().subscribe( () =>{
       var productos: Producto[]=this.productosServices.productos
       this.productos=productos;
-      console.log(this.productos[23])
     })
   }
 
