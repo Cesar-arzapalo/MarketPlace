@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { CategoriaService } from '../../services/categoria.service';
+import { CategoriaService } from '../../services/categoria.service';
 import { CategoriaArbol } from 'src/app/models/categoriaArbol.model';
 
 @Component({
@@ -11,10 +11,10 @@ export class MenuComponent implements OnInit {
   categorias: CategoriaArbol[]=[];
   public  fontModal = false;
   
-  constructor(/*private categoriaService:CategoriaService*/) {
-    // this.categoriaService.cargarCategorias().subscribe(()=>{
-    //   this.categorias=this.categoriaService.categorias;
-    // })
+  constructor(private categoriaService:CategoriaService) {
+    this.categoriaService.cargarCategorias().subscribe(()=>{
+      this.categorias=this.categoriaService.categorias;
+    })
   }
 
   ngOnInit(): void {
