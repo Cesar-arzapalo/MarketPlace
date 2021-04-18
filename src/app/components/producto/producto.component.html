@@ -3,7 +3,7 @@
         <img class ="imagen" src="{{producto.imagenesRefereciales[0]}}" alt="">
     </div>
     <div class="producto-nombre">
-        {{producto.nombre}}
+        {{producto.nombre | maxLength:20:" ..." }} 
     </div>
     <div class="producto-precio">
         Online S/{{producto.precioUnidad | number : '1.2-2'}}

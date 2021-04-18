@@ -17,9 +17,10 @@ import {HttpClientModule} from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { ComprobanteComponent } from './pages/comprobante/comprobante.component';
 import { VentaModule } from './pages/venta/venta.module';
 import { ComponentsModule } from './components/components.module';
+import { ComprobanteModule } from './pages/comprobante/comprobante.module';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,6 @@ import { ComponentsModule } from './components/components.module';
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
-    ComprobanteComponent,
 
   ],
   imports: [
@@ -43,7 +43,9 @@ import { ComponentsModule } from './components/components.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     VentaModule,
-    ComponentsModule
+    ComprobanteModule,
+    ComponentsModule,
+    PipesModule
     
   ],
   exports:[  ],

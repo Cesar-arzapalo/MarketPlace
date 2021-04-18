@@ -1,0 +1,93 @@
+.venta{
+    padding: 0px 20px;
+    margin: 20px 0;
+}
+
+.pedido{
+    padding: 0px 20px;
+    margin: 20px 0;
+}
+
+.titulo-venta{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button{
+    width: 50%;
+    height: 40px;
+    font-size: 18px;
+}
+
+.centrado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centrado-verticalmente{
+    display: flex;
+    align-items: center;
+}
+.monto{
+    height: 100%;
+}
+.centrado-verticalmente-derecho{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    /* justify-content: end; */
+    text-align: center;
+}
+
+
+.cabecera-pedido{
+    background-color: red;
+    color: #fff;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cuerpo-pedido{
+    border: red solid 1px;
+}
+
+.monto-pedido{
+    border: red solid 1px;
+    height: 80px;
+    color: #000;
+    font-weight: bold;
+}
+
+.sin-pedido{
+    border: red solid 1px;
+    height: 400px;
+    color: #000;
+    font-weight: bold;
+}
+
+.notificacion{
+    font-size: 32px;
+}
+
+img{
+    height: 80px;
+    max-height: 80px;
+    max-width: 80px;
+    padding: 5%;
+}
+
+.producto-carro:hover{
+    font-weight: normal!important;
+}
+
+.en-filas{
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+.navegacion-comprobante{
+    padding: 40px 0;
+}

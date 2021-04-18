@@ -4,6 +4,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { Producto } from '../../models/producto.models';
 import { ProductoSolicitado } from '../../models/pedido.model';
 import { CarroCompartidoService } from '../../services/carro-compartido.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-catalogo',

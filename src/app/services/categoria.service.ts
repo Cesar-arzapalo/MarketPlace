@@ -11,24 +11,31 @@ export class CategoriaService {
 
   private categoriaColections!: AngularFirestoreCollection<Categoria>;
   public categorias: CategoriaArbol[];
+  private referencias: string[]
 
   constructor(private store: AngularFirestore) {
     this.categorias = []
+    this.referencias = []
+  }
+
+  cargarReferencias(){
+    this.categoriaColections.ref.orderBy('nombre', 'asc').get().then(ref =>{
+      ref.docs.map( doc => this.referencias.push(doc.id))
+      console.log(this.referencias)
+    } )  
   }
 
   cargarCategorias() {
     this.categoriaColections = this.store.collection<Categoria>('categoria', ref => ref.orderBy('nombre', 'asc'));
+    this.cargarReferencias()
     return this.categoriaColections.valueChanges()
-      .pipe(map((arrayCategoria: Categoria[]) => {
-        console.log(arrayCategoria)
-        arrayCategoria.map(categoria => {
-          if (categoria.raiz) {
-            this.categorias.push(this.cargarHijas(new CategoriaArbol(categoria.nombre, []), categoria))
-            console.log(this.categorias)
-          }
-        })
-
-      }));
+    .pipe(map((arrayCategoria: Categoria[]) => {
+      arrayCategoria.map((categoria, idx: number) => {
+        if (categoria.raiz) {
+          this.categorias.push(this.cargarHijas(new CategoriaArbol(categoria.nombre, [],this.referencias[idx]), categoria))
+        }
+      }) 
+    }));
   }
 
   cargarCategoria(idCategoria: string) {
@@ -37,12 +44,11 @@ export class CategoriaService {
   }
 
   cargarHijas(raiz: CategoriaArbol, raizReferecia: Categoria): CategoriaArbol {
-    console.log(raizReferecia)
     if (raizReferecia.idHijas.length !== 0) {
       raizReferecia.idHijas.map(referenciaHija => {
         this.cargarCategoria(referenciaHija).subscribe((categoria) => {
           if (categoria.exists) {
-            raiz.categoriasHijas.push(this.cargarHijas(new CategoriaArbol(categoria.data()!.nombre,[]),categoria.data()!))
+            raiz.categoriasHijas.push(this.cargarHijas(new CategoriaArbol(categoria.data()!.nombre,[],"",raiz),categoria.data()!))
           }
         });
       })
