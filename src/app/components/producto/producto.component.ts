@@ -42,8 +42,8 @@ export class ProductoComponent implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         console.log("Producto " + this.producto.nombre + " agregado")
-        this.cantidad=1;
         this.emitirProductoSolicitado.emit(new ProductoSolicitado(this.producto,this.cantidad))
+        this.cantidad=1;
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
