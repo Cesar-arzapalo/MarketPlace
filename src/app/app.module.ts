@@ -21,7 +21,6 @@ import { VentaModule } from './pages/venta/venta.module';
 import { ComponentsModule } from './components/components.module';
 import { ComprobanteModule } from './pages/comprobante/comprobante.module';
 import { PipesModule } from './pipes/pipes.module';
-import { ComprobanteComponent } from './pages/comprobante/comprobante.component';
 import { AuthModule } from '@auth0/auth0-angular';
 
 
@@ -37,8 +36,6 @@ import { AuthModule } from '@auth0/auth0-angular';
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
-    ComprobanteComponent,
-   
 
   ],
   imports: [
