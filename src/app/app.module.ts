@@ -33,7 +33,8 @@ import { ComponentsModule } from './components/components.module';
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
-    ComprobanteComponent
+    ComprobanteComponent,
+
   ],
   imports: [
     BrowserModule,

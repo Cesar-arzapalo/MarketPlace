@@ -1,0 +1,43 @@
+<form [formGroup]="accountForm">
+
+    <div class="login-form">
+        <h4 class="login-title">Perfil</h4>
+
+        <div class="row">
+            <div class="col-md-6 col-12 mb--20">
+                <label>Nombre</label>
+                <input type="text" formControlName="nombre">
+            </div>
+            <div class="col-md-6 col-12 mb--20">
+                <label>Apellidos</label>
+                <input type="text" formControlName="apellidos">
+            </div>
+            <div class="col-md-6 col-12 mb--20">
+                <label>Fecha nacimiento</label>
+                <input type="date" formControlName="fecha_nacimiento">
+            </div>
+            <div class="col-md-6 col-12 mb--20">
+                <label>Correo*</label>
+                <input type="email" formControlName="email">
+            </div>
+            <div class="col-md-6 col-12 mb--20">
+                <label>Tipo de documento</label>
+                <input type="text" formControlName="tipo_documento">
+            </div>
+            <div class="col-md-6 col-12 mb--20">
+                <label>telefono</label>
+                <input type="text" formControlName="telefono">
+            </div>
+            <div class="col-md-6 col-12 mb--20">
+                <label>Numero de documento</label>
+                <input type="text" formControlName="documento">
+            </div>
+
+        </div>
+        <div class="row ml-2">
+            <button type="button" class="btn btn-danger" style="margin-top: 10px; width: 150px !important;margin-left: 12px !important;">Actualizar datos</button>
+
+        </div>
+    </div>
+
+</form>

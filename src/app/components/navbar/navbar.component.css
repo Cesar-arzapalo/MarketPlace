@@ -1,49 +1,75 @@
-.navbar-emark{
-    background-color: rgb(255,0,0)!important; 
+.navbar-emark {
+    background-color: rgb(255, 0, 0)!important;
     height: 60px;
     padding: 0 10px;
 }
-.navbar-container{
+
+.navbar-container {
     margin: 0 20px !important;
-    
 }
-.navbar-brand{
-    color:#fff;
+
+.navbar-brand {
+    color: #fff;
     font-size: 25px;
     font-weight: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /* vertical-align: center; */
 }
-.navbar-brand:hover{
-    color:rgba(255,255,255,0.75);
+
+.navbar-brand:hover {
+    color: rgba(255, 255, 255, 0.75);
 }
-.navbar-brand:active{
-    color:#fff
+
+.navbar-brand:active {
+    color: #fff
 }
-.navbar-icon{
+
+.navbar-icon {
     width: 35px;
     height: 35px;
     margin: 5px
 }
-.navbar-section{
+
+.navbar-section {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 60px;
 }
-.navbar-form{
+
+.navbar-form {
     width: 100%;
 }
-.buscador{
+
+.buscador {
     width: 100%;
     border-radius: 15px;
 }
-.navbar-cuenta{
+
+.navbar-cuenta {
     text-align: end;
-    color:#fff;
+    color: #fff;
 }
-.navbar-icon-user{
+
+.navbar-icon-user {
     width: 20px;
     height: 20px;
     margin: 0 10px;
+}
+
+.option-box.cart-box-1 {
+    width: 400px;
+    margin: 5px;
+}
+
+.option-box.cart-box {
+    padding: 20px !important;
+    width: 400px;
+    margin: 5px;
+}
+
+.option-box.search-box {
+    padding: 0;
+    width: 400px;
+    margin: 5px;
 }

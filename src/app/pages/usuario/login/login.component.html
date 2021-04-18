@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="titulo text-center">
+        <a>FISIMARKET | Login</a>
+    </div>
+    <form autocomplete="off" [formGroup]="loginForm" style="padding-top: 30px; padding-bottom: 30px;">
+
+        <div class="login-form" style="width: 70%; margin-left: auto; margin-right: auto;">
+            <h4 class="login-title">Iniciar sesion</h4>
+            <div class="row">
+                <div class="col-md-12 col-12 mb--20">
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <input class="form-control mb-0" type="email" placeholder="correo" formControlName="email">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-12 mb--20">
+                <div class="form-group">
+
+                    <label>Contraseña</label>
+                    <input class="form-control" type="password" placeholder="Contraseña" formControlName="password">
+
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-10 mb--20 text-left text-md-right ">
+                <a (click)="goToLink('usuario/registro')">Crear cuenta?</a>
+            </div>
+            <div class="col-md-12 ">
+                <div class="form-group">
+                    <button type="button" class="btn btn-danger">Login</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>
