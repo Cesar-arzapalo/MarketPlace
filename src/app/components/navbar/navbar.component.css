@@ -1,7 +1,14 @@
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 300;
+    top:0;
+    left:0;
+}
 .navbar-emark {
     background-color: rgb(255, 0, 0)!important;
     height: 60px;
-    padding: 0 10px;
+    width: 100%;
 }
 
 .navbar-container {
@@ -72,4 +79,27 @@
     padding: 0;
     width: 400px;
     margin: 5px;
+}
+
+
+.search-results {
+    color: blue;
+    background-color: #fff;
+    position:relative;
+    display: none;
+}
+
+.navbar-emark-copia{
+    width: 100%;
+}
+
+.texto-resultados {
+    font-weight: bold;
+    color:tomato;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.navbar-emark-copia {
+    display: none;
 }

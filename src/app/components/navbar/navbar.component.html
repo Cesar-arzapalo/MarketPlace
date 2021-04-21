@@ -1,30 +1,70 @@
-<nav class="navbar-emark">
-    <div class="row navbar-container ">
-        <div class="col-md-2 navbar-section">
-            <a class="navbar-brand" href="/">
-                <i class="fas fa-store"></i> EMARK
-            </a>
-        </div>
-        <div class="col-md-8 navbar-section">
-            <form class="navbar-form">
-                <input class="form-control buscador" type="search" placeholder="Encuentra tu producto aqui" aria-label="Search">
-            </form>
-        </div>
-        <div class="col-md-2 navbar-section navbar-cuenta">
-            <!-- <img class="navbar-icon-user" src="../../../assets/img/user.svg"/>   Mi cuenta -->
-            <div class="dropdown">
-                <a class=" dropdown-toggle" style="text-decoration: none !important; color: white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true"><i class="fa fa-user"></i>
-                  Mi cuenta
+<div class="header" #header> 
+    <nav class="navbar-emark">
+        <div class="row navbar-container ">
+            <div class="col-md-2 navbar-section">
+                <a class="navbar-brand" href="/">
+                    <i class="fas fa-store"></i> EMARK
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li *ngIf="(auth.isAuthenticated$ | async)"><a (click)="goToLink('usuario/perfil')" class="dropdown-item">Perfil</a></li>
-                    <li *ngIf="!(auth.isAuthenticated$ | async)"><a (click)="auth.loginWithRedirect()" class="dropdown-item">Login / Registrarse</a></li>
-                    <li *ngIf="(auth.isAuthenticated$ | async)"><a (click)="auth.logout()" class="dropdown-item">Cerrar Sesion</a></li>
-                </ul>
             </div>
-
+            <div class="col-md-8 ">
+                <div class="navbar-section">
+                    <form class="navbar-form" (ngSubmit)="buscarTotal(forma)" #forma="ngForm">
+                        <input #termino (input)="buscarParcial(termino.value)" (focus)="buscarParcial(termino.value)" class="form-control buscador" name="buscar" ngModel type="search" placeholder="Encuentra tu producto aqui" aria-label="Search">
+                    </form>
+                </div>
+                <!-- Modal -->
+                
+                
+            </div>
+            <div class="col-md-2 navbar-section navbar-cuenta">
+                <!-- <img class="navbar-icon-user" src="../../../assets/img/user.svg"/>   Mi cuenta -->
+                <div class="dropdown">
+                    <a class=" dropdown-toggle" style="text-decoration: none !important; color: white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true"><i class="fa fa-user"></i>
+                      Mi cuenta
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li *ngIf="(auth.isAuthenticated$ | async)"><a (click)="goToLink('usuario/perfil')" class="dropdown-item">Perfil</a></li>
+                        <li *ngIf="!(auth.isAuthenticated$ | async)"><a (click)="auth.loginWithRedirect()" class="dropdown-item">Login / Registrarse</a></li>
+                        <li *ngIf="(auth.isAuthenticated$ | async)"><a (click)="auth.logout()" class="dropdown-item">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+    
+            </div>
+    
+    
         </div>
+    
+        
+        
+        
+    </nav>
+    
+    <div class="navbar-emark-copia" #fondo>
+        <div class="row navbar-container" #fondo2>
+            <div class="col-md-2 navbar-section" style="visibility: hidden;">
+        
+            </div>
+            <div class="col-md-8">
+                <div class="search-results rounded p-3" #results>
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-md-6 " *ngFor="let producto of producBuscados.slice(0,6);let i=index">
+                            <app-producto [producto]="producto" (emitirProductoSolicitado)="agregarProductoSoilicitado($event)"></app-producto>
+                        
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="producBuscados.length>2">
+                        <div class="text-center">
+                            <p class="texto-resultados" (click)="irBuscar()">Ver todos los resultados</p>
+                        </div>
+                    </div>
+                    <div class="row" style="padding: 20px 0px;" *ngIf="producBuscados.length==0">
+                            <p class="text-center text-danger" style="margin:0;">No se encontraron resultados</p>
+                    </div>
+                </div>
 
-
+                
+            </div>
+            
+        </div>
     </div>
-</nav>
+</div>

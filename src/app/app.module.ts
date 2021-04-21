@@ -22,6 +22,8 @@ import { ComponentsModule } from './components/components.module';
 import { ComprobanteModule } from './pages/comprobante/comprobante.module';
 import { PipesModule } from './pipes/pipes.module';
 import { AuthModule } from '@auth0/auth0-angular';
+import { BuscarComponent } from './pages/buscar/buscar.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
+    BuscarComponent,
 
   ],
   imports: [
@@ -53,7 +56,8 @@ import { AuthModule } from '@auth0/auth0-angular';
       clientId: 'vT3PBjnZFRcgh3Ri5gHETKSQdOVxdaS9',
       cacheLocation:'localstorage',
       useRefreshTokens:true
-    })
+    }),
+    FormsModule
     
   ],
   exports:[  ],
