@@ -6,7 +6,11 @@ a {
     height: 60px;
     color:#fff !important;
     position: relative;
-    margin-top:65px;
+    width: 100%;
+    position: fixed;
+    z-index: 300;
+    top:60px;
+    left:0;
 }
 
 .menu-categorias{

@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 <app-menu></app-menu>
-<app-navegacion (newItemEvent)="obtenerRamaPrincipal($event)" (newItemEvent)="obtenerRamaPrincipal($event)" ></app-navegacion>
-<router-outlet ></router-outlet>
-<app-footer></app-footer>
+<!-- <app-navegacion (newItemEvent)="obtenerRamaPrincipal($event)" (newItemEvent)="obtenerRamaPrincipal($event)" ></app-navegacion> -->
+<div class="vista">
+    <router-outlet ></router-outlet>
+    <app-footer></app-footer>
+</div>

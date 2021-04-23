@@ -13,8 +13,6 @@
                     </form>
                 </div>
                 <!-- Modal -->
-                
-                
             </div>
             <div class="col-md-2 navbar-section navbar-cuenta">
                 <!-- <img class="navbar-icon-user" src="../../../assets/img/user.svg"/>   Mi cuenta -->
@@ -28,28 +26,18 @@
                         <li *ngIf="(auth.isAuthenticated$ | async)"><a (click)="auth.logout()" class="dropdown-item">Cerrar Sesion</a></li>
                     </ul>
                 </div>
-    
             </div>
-    
-    
         </div>
-    
-        
-        
-        
     </nav>
-    
     <div class="navbar-emark-copia" #fondo>
         <div class="row navbar-container" #fondo2>
             <div class="col-md-2 navbar-section" style="visibility: hidden;">
-        
             </div>
             <div class="col-md-8">
                 <div class="search-results rounded p-3" #results>
                     <div class="row g-0 d-flex justify-content-around">
                         <div class="col-md-4 " *ngFor="let producto of producBuscados.slice(0,cantidadMostrada);let i=index">
                             <app-producto-buscador [producto]="producto" (emitirProductoSolicitado)="agregarProductoSoilicitado($event)"></app-producto-buscador>
-                        
                         </div>
                     </div>
                     <div class="row" *ngIf="producBuscados.length>cantidadMostrada">
@@ -61,10 +49,7 @@
                             <p class="text-center text-danger" style="margin:0;">No se encontraron resultados</p>
                     </div>
                 </div>
-
-                
             </div>
-            
         </div>
     </div>
 </div>
