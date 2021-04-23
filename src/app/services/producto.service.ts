@@ -19,6 +19,7 @@ export class ProductoService {
   constructor(private store: AngularFirestore, private authentication: AngularFireAuth) {
     this.productos = []
    }
+   
 
   cargarProductos(){
     this.productosColections = this.store.collection<Producto>('producto', ref => ref.orderBy('nombre', 'asc'));
