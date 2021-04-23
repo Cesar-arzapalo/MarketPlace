@@ -14,18 +14,30 @@ export class ProductoService {
   url = `${environment.backendCrudURL}/products`
   private productosColections!: AngularFirestoreCollection<Producto>;
   public productos: Producto[];
+  public referenciasProductos:string[]; 
 
 
   constructor(private store: AngularFirestore, private authentication: AngularFireAuth) {
     this.productos = []
+    this.referenciasProductos = []
    }
+
+  cargarReferencias(){
+    this.productosColections.ref.orderBy('nombre', 'asc').get().then(ref =>{
+      ref.docs.map( doc => this.referenciasProductos.push(doc.id))
+      console.log(this.referenciasProductos)
+    } )  
+  }
    
 
   cargarProductos(){
     this.productosColections = this.store.collection<Producto>('producto', ref => ref.orderBy('nombre', 'asc'));
+    this. cargarReferencias();
     return this.productosColections.valueChanges()
             .pipe(map((arrayProductos: Producto[]) => {
               this.productos = arrayProductos;
+              this.productos=this.productos.map<Producto>((producto:Producto,idx:number) => {producto.id=this.referenciasProductos[idx]; return producto})
+              console.log(this.productos)
             }));
   }
 

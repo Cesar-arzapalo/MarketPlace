@@ -29,6 +29,9 @@
     align-items: center;
     justify-content: center;
 }
+.direccion-vertical{
+    flex-direction: column;
+}
 
 .bordes-laterales{
     border-left: #fff;
@@ -104,4 +107,8 @@
 
 .empty-text {
     color:gray;
+}
+
+.catalogo{
+    min-height: 50vh;
 }

@@ -1,0 +1,25 @@
+<div class="producto">
+    
+    <div class="row g-0">
+        <a class="producto-imagen centrado-vertical col-md-4" [routerLink]="['/producto',producto.id]">
+            <img class ="imagen" src="{{producto.imagenesRefereciales[0]}}" alt="" [routerLink]="['/producto',producto.id]">
+        </a>
+        <div class=" col-md-8">
+            <button class="btn btn-outline-dark float-end" [routerLink]="['/producto',producto.id]" title="Ver detalles del producto">
+                <i class="fas fa-angle-double-right"></i>
+            </button>
+            <div class="producto-nombre mt-1 md-1">
+                {{producto.nombre | maxLength:20:" ..." }} 
+            </div>
+            <div class="producto-precio md-1">
+                Online S/{{producto.precioUnidad | number : '1.2-2'}}
+            </div>
+            <div class="producto-precio md-1">
+                Stock {{producto.stock | number : '1.0'}}
+            </div>
+            <div class="producto-precio md-1">
+                Valoracion {{producto.valoracion | number : '1.1-1'}}
+            </div>
+        </div>
+    </div>
+</div>

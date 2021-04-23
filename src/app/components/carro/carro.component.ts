@@ -12,7 +12,7 @@ import { ProductoCarro } from '../../models/producto-carro.model';
 export class CarroComponent implements OnInit {
 
   pedido: Pedido;
-  montoTotal:Number;
+  montoTotal:number;
 
   constructor(private router:Router) { 
     this.pedido = CarroCompartidoService.getCarro()

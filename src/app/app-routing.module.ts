@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:"buscar/:termino", component:BuscarComponent},
   {path:"comprobante/:id",component:ComprobanteComponent},
   {path:"not-found",  component:NotFoundComponent},
-  {path:"catalogo/:id", component:DetalleProductoComponent},
+  {path:"producto/:id", component:DetalleProductoComponent},
   {path: "**", pathMatch:"full", redirectTo:"/catalogo"}
 ];
 

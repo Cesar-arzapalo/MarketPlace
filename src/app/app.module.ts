@@ -38,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     ProductoComponent,
     DetalleProductoComponent,
     AdministracionComponent,
-    BuscarComponent,
+    BuscarComponent
 
   ],
   imports: [

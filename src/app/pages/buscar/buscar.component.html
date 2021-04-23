@@ -1,26 +1,5 @@
 <div class="catalogo row" *ngIf="productos.length>0">
-    <div class="col-md-3">
-        <!-- <div class="catalogo-lista">
-            <div class="categoria-actual centrado bordes-bajo">
-                Categoria: {{categoriaActual.nombre}}
-            </div>
-            <div *ngFor="let categoria of categoriasHijas" class="categorias">
-                <div class="categoria">{{categoria.nombre}}</div>
-            </div>
-            <div *ngFor="let opcion of opciones" class="categorias bordes-bajo">
-                <div  class="categoria-opcion row">
-                    <div class="col-md-10 centrado-verticalmente ">
-                        {{opcion}} 
-                    </div>
-                    <div class="col-md-2 centrado-verticalmente ">
-                        <i class="fas fa-angle-right"></i>
-                    </div>
-                    
-                </div>
-            </div>
-        </div> -->
-    </div>
-    <div class="col-md-9 categoria-vista" >
+    <div class="col categoria-vista" >
         <div class="catalogo-opciones row">
             <div class="col-md-4 centrado-verticalmente ">
                 Busqueda: {{busqueda | titlecase}}  {{productos.length}} producto{{productos.length==1? "":"s"}}
@@ -40,9 +19,8 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-center" *ngIf="productos.length==0" style="margin: 40px 0;">
-    <div class="row">
-        <div class="col">
+<div class="d-flex justify-content-center catalogo row" *ngIf="productos.length==0" style="margin: 40px 0;">
+        <div class="col centrado direccion-vertical">
             <p class="text-center empty-text" style="font-size:36px;font-weight: bold;">¡Oops!</p>
             <p class="text-center empty-text" style="font-size:28px;">No encontramos resultados para tu búsqueda "{{busqueda}}"</p>
             <div class="recommend">
@@ -50,5 +28,4 @@
                 <p class="text-center"><i class="fa fa-check text-danger"></i>   Simplifica la búsqueda con terminos menos especificos.</p>
             </div>
         </div>
-    </div>
 </div>

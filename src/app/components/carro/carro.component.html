@@ -11,7 +11,7 @@
         </li>
         <li class="opciones-dropdown bordes-finales-redondeados row g-0">
             <div class="col centrado-vertical">
-                Monto Total: S/ {{montoTotal}}
+                Monto Total: S/ {{montoTotal | number:'1.2-2'}}
             </div>
             <div class="col fila-inversa ">
                 <a class="boton-opciones centrado-vertical" (click)="navegar()"> Realizar pedido </a>
@@ -20,26 +20,3 @@
     </ul>
 
 </div>
-
-<!-- 
- <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">nombre</th>
-                                <th scope="col">cantidad</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr  *ngFor="let producto of pedido.productos; let idx = index">
-                                <th scope="row">idx</th>
-                                <td>{{producto.producto.nombre}}</td>
-                                <td>{{producto.cantidad}}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-
-
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary"data-bs-dismiss="modal" (click)=navegar()>Comprar el pedido</button>
-   -->

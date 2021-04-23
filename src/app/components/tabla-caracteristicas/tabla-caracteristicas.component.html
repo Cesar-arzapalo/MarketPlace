@@ -1,0 +1,13 @@
+<div class="caracteristicas">
+    <div class="titulo-caracteristicas">
+        <h2>Especificaciones:</h2>
+    </div>
+    <div *ngFor= "let caracteristica of caracteristicas" class="caracteristica row mt-1 md-1">
+        <div class="col-md-4 nombre-caracteristica">
+            <h3>{{caracteristica.nombre| Capitalizate }}: </h3>
+        </div>
+        <div class="col-md-8 descripcion-cartacteristica" >
+            <h3>{{caracteristica.descripcion}}</h3>
+        </div>
+    </div>
+</div>

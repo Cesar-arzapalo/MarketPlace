@@ -7,7 +7,7 @@
             Nombre: {{productoSolicitado.producto.nombre | maxLength:15:" ..."}}
         </div>
         <div class="centrado-verticalmente producto-data">
-            Precio: S/{{productoSolicitado.producto.precioUnidad}}
+            Precio: S/{{productoSolicitado.producto.precioUnidad | number:'1.2-2'}}
         </div>
     </div>
     <div class="col-md-3 centrado-verticalmente">

@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit{
   
   public producBuscados:Producto[]=[];
   public terminoBusc:string="";
+  public cantidadMostrada = 6;
 
   constructor(private router: Router,
               public auth: AuthService,

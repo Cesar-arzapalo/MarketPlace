@@ -92,7 +92,7 @@ export class ProductosComponent implements OnInit {
     })
 
     var productoNuevo = new Producto(
-      1,this.productosForm.get("nombre")?.value,
+      "1",this.productosForm.get("nombre")?.value,
       this.productosForm.get("descripcion")?.value,
       this.productosForm.get("valoracion")?.value,
       this.productosForm.get("visitas")?.value,
@@ -106,7 +106,8 @@ export class ProductosComponent implements OnInit {
       caracteristicas
     )
     console.log(productoNuevo);
-    this.productoService.agregarProducto(productoNuevo).then( () => {
+    this.productoService.agregarProducto(productoNuevo).then( (ref) => {
+      console.log(ref.id)
       Swal.fire({
         title:'Producto añadido',
         icon:'success'

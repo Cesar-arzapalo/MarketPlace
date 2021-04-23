@@ -17,6 +17,7 @@ export class CatalogoComponent implements OnInit {
   @Input() categoriaActual: Categoria;
   productos:Producto[];
   opciones: string[];
+  public filtradoTerminado = false;
 
   constructor(
     private productosServices: ProductoService, 

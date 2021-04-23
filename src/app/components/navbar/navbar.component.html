@@ -46,15 +46,15 @@
             </div>
             <div class="col-md-8">
                 <div class="search-results rounded p-3" #results>
-                    <div class="row d-flex justify-content-around">
-                        <div class="col-md-6 " *ngFor="let producto of producBuscados.slice(0,6);let i=index">
-                            <app-producto [producto]="producto" (emitirProductoSolicitado)="agregarProductoSoilicitado($event)"></app-producto>
+                    <div class="row g-0 d-flex justify-content-around">
+                        <div class="col-md-4 " *ngFor="let producto of producBuscados.slice(0,cantidadMostrada);let i=index">
+                            <app-producto-buscador [producto]="producto" (emitirProductoSolicitado)="agregarProductoSoilicitado($event)"></app-producto-buscador>
                         
                         </div>
                     </div>
-                    <div class="row" *ngIf="producBuscados.length>2">
+                    <div class="row" *ngIf="producBuscados.length>cantidadMostrada">
                         <div class="text-center">
-                            <p class="texto-resultados" (click)="irBuscar()">Ver todos los resultados</p>
+                            <p class="texto-resultados" (click)="irBuscar()">Ver todos los resultados [{{producBuscados.length}}]</p>
                         </div>
                     </div>
                     <div class="row" style="padding: 20px 0px;" *ngIf="producBuscados.length==0">

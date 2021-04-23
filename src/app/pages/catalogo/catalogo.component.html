@@ -1,5 +1,5 @@
 <div class="catalogo row">
-    <div class="col-md-3">
+    <div *ngIf="filtradoTerminado"class="col-md-3">
         <div class="catalogo-lista">
             <div class="categoria-actual centrado bordes-bajo">
                 Categoria: {{categoriaActual.nombre}}
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-9 categoria-vista">
+    <div class="col categoria-vista">
         <div class="catalogo-opciones row">
             <div class="col-md-4 centrado-verticalmente ">
                 {{categoriaActual.nombre}}: {{productos.length}} producto{{(productos.length>1)?"s":""}}

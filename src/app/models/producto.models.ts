@@ -1,10 +1,10 @@
 export interface Caracteristica{
-        nombre: String,
-    	descripcion: String
+        nombre: string,
+    	descripcion: string
 }
 
 export class Producto {
-    constructor(public id: number,public nombre: string,public descripcion: string,
+    constructor(public id: string,public nombre: string,public descripcion: string,
                 public valoracion: number, public visitas:number,
                 public idProveedor: number,public idCategoria: number,
                 public stock: number, public precioUnidad: number,

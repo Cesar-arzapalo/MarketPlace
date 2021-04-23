@@ -1,0 +1,80 @@
+.imagen-princicpal{
+    max-width: 95%;
+    max-height: 95%;
+    min-width: 80%;
+}
+.imagen-secundaria{
+    max-width: 95%;
+    max-height: 95%;
+
+}
+.centrado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centrado-verticalmente{
+    display: flex;
+    align-items: center;
+}
+
+.detalle-producto{
+    min-height: 60vh;
+    padding: 20px;
+}
+
+.producto-seleccionado{
+    border: red 2px solid;
+    border-radius: 5px;
+}
+
+.operador{
+    background-color: rgb(160, 160, 160);
+    text-decoration: none;
+    width: 100%;
+    height: 150%;
+    border-radius: 5px;
+    font-size: 10px;
+    color: #fff !important;
+    margin: 1px;
+}
+
+.operador:hover{
+    font-size: 105%;
+    background-color: rgba(160, 160, 160,0.8);
+}
+.opciones-cantidad{
+    display: flex;
+    flex-direction: column;
+}
+.producto-agregar{
+    background-color: rgb(255, 0, 0);
+    color: #fff !important;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.producto-agregar:hover{
+    font-size:110%;
+    background-color: rgba(255,0,0,0.9)
+}
+
+.opciones-detalle {
+    max-height: 5vh!important;
+    
+}
+.cantidad{
+    background-color: rgb(160, 160, 160);
+    color: #fff !important;
+    border-radius: 5px;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.agotado{
+    color: red;
+}

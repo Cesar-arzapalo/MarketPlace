@@ -6,7 +6,7 @@ import { Pedido } from '../models/pedido.model';
 })
 export class CarroCompartidoService {
   static carro:Pedido = new Pedido(new Date(), [])
-  static monto: Number = 0;
+  static monto: number = 0;
   constructor() {
    }
 
