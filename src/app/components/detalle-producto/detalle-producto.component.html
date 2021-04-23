@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div class="container" >
+                <div class="row" *ngFor="let foto of fotos_pequenas">
+                    <img  [src]="foto" style="width: 100%;  min-width: 70px; height: auto;" >
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="container">
+                <div class="row">
+                    <img [src]="foto_grande" style="width: 100%; min-width: 300px; height: auto;">
+                </div>
+                <div class="row">
+                    <p>{{descripcion}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="container">
+                <div class="row">
+                    <h1>{{nombre}}</h1>
+                </div>
+                <div class="row">
+                <br>
+                <br>
+                    <h2>Caracteristicas:</h2>
+                    <div *ngFor="let car of caracteristicas_reales">
+                        <h4>{{car.nombre}} : {{car.descripcion}}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                <br>
+                <br>
+                    <h2>Precio: {{precio}}</h2>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

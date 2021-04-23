@@ -7,12 +7,12 @@ import { CarroComponent } from './carro/carro.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductoCarroComponent } from './producto-carro/producto-carro.component';
 import { PipesModule } from '../pipes/pipes.module';
-import { AuthButtonComponent } from './auth-button/auth-button.component';
+import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 
 
 //, AuthButtonComponent
 @NgModule({
-  declarations: [TablaComponent,BarraComponent, CarroComponent,MenuComponent, ProductoCarroComponent],
+  declarations: [TablaComponent,BarraComponent, CarroComponent,MenuComponent, ProductoCarroComponent,  DetalleProductoComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

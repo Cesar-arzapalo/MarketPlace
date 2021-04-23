@@ -24,14 +24,8 @@ export class CaracteristicaService {
 
   cargarCaracteristica(idCaracteristica: string){
     this.caracteristicasColections = this.store.collection<Caracteristica>('caracteristicas', ref => ref.orderBy('nombre', 'asc'));
-    return this.caracteristicasColections.doc(idCaracteristica).get().subscribe(caracteristica => {
-        if (caracteristica.exists) {
-            console.log(caracteristica.data());
-            return caracteristica.data();
-        } else {
-            return 'la caracteristica no existe';
-        }
-    });
+    //console.log(this.caracteristicasColections.doc(idCaracteristica).get())
+    return this.caracteristicasColections.doc(idCaracteristica).get();
   }
 
   agregarCaracteristica(caracteristicas: Caracteristica){
