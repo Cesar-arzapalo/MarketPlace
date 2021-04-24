@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CarroCompartidoService } from '../../services/carro-compartido.service';
 import { Pedido } from '../../models/pedido.model';
 import { CorreoService } from '../../services/correo.service';
+import { FormControl, FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 interface Paginacion{
   id:number;
@@ -21,22 +22,42 @@ export class VentaComponent implements OnInit {
   idPagina: number;
   paginacion: Paginacion[];
   pedido: Pedido;
-  monto: Number = CarroCompartidoService.getMonto();
+  monto: number = CarroCompartidoService.getMonto();
+  formPedido: FormGroup;
+  activacion=false;
 
 
-  constructor(private router: Router, private correoService: CorreoService) {
+  constructor(private router: Router, private correoService: CorreoService,private fb :FormBuilder) {
     this.pagina="tipo de recepcion";
     this.idPagina=1;
     this.paginacion=[{id:1,nombre:"tipo de recepcion"},{id:2,nombre:"tipo de entrega"}
     ,{id:3,nombre:"metodo de pago"},{id:4,nombre:"finalizar venta"}]
     this.pedido=CarroCompartidoService.carro;
+    this.formPedido=fb.group({
+      recepcionForm:[,Validators.required],
+      entregaForm:[,Validators.required],
+      ventaForm:[,Validators.required]
+    })
     console.log(this.pedido)
     correoService.enviarCorreo("minorin.sayakan@gmail.com","User","Envio de boleta de pago - Emark","Gracias por comprar en Emark")
    }
 
   ngOnInit(): void {
+    this.crearListener()
   }
 
+  crearListener(){
+    this.formPedido.valueChanges.subscribe((valor) => {
+      console.log(valor, this.formPedido);
+    })
+
+    this.formPedido.statusChanges.subscribe((status) => {
+      console.log({status},status)
+      if(status == "VALID"){
+        console.log("pedido valido")
+      }
+    })
+  }
   navegar(idPagNav:number,direccion: string){
     switch(idPagNav){
       case 1: this.pagina="tipo de recepcion"; break;
@@ -48,6 +69,8 @@ export class VentaComponent implements OnInit {
       case "izquierda": this.idPagina-=1; break;
       case "derecha": this.idPagina+=1; break;
     }
+
+    this.activacion=false;
     
   }
 
@@ -58,8 +81,27 @@ export class VentaComponent implements OnInit {
   obtenerPaginacion(id:number):string{
     var nombre:string=""
     this.paginacion.map(pag => { if (pag.id ===id) nombre= pag.nombre});
-    console.log(nombre)
     return nombre;
+  }
+
+  actualizarForm(form: FormGroup, idx: number){
+    console.log("holi desde ventas")
+    switch(idx){
+      case 0: this.formPedido.get('recepcionForm')?.setValue(form);break;
+      case 1: this.formPedido.get('entregaForm')?.setValue(form);break;
+      case 2: this.formPedido.get('ventaForm')?.setValue(form);break;
+    }
+    this.activacion=true
+
+  }
+
+  obtenerForm( idx: number):AbstractControl{
+    switch(idx){
+      case 0: return this.formPedido.get('recepcionForm')!;
+      case 1: return this.formPedido.get('entregaForm')!;;
+      case 2: return this.formPedido.get('ventaForm')!;
+      default: return this.formPedido.get('ventaForm')!;
+    }
   }
 
 }

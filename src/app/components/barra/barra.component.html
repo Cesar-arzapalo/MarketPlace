@@ -1,3 +1,3 @@
 <div class="barra row g-0 mt-3" >
-    <a *ngFor="let opcion of opciones" class="barra-option col">{{opcion}}</a>
+    <a *ngFor="let opcion of opciones, let idx = index" class="barra-option col" [ngClass]="{'opcion-seleccionada':opcionId===idx,'opcion-no-seleccionada':opcionId!==idx}" (click)="actualizarOpcion(idx)">{{opcion}}</a>
 </div>

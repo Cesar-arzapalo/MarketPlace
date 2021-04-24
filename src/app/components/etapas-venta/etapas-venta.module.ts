@@ -4,6 +4,7 @@ import { MetodoPagoComponent } from './metodo-pago/metodo-pago.component';
 import { TipoEntregaComponent } from './tipo-entrega/tipo-entrega.component';
 import { TipoRecepcionComponent } from './tipo-recepcion/tipo-recepcion.component';
 import { ComponentsModule } from '../components.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { ComponentsModule } from '../components.module';
   declarations: [MetodoPagoComponent,TipoEntregaComponent,TipoRecepcionComponent],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    ReactiveFormsModule
   ],
   exports:[MetodoPagoComponent,TipoEntregaComponent,TipoRecepcionComponent]
 })

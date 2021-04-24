@@ -1,29 +1,61 @@
 <div class="contenido">
-
-    <app-barra [opciones]="opcionesTipoRecepcion"></app-barra>
-    <div class="cuerpo-tipo-recepcion row g-0">
-        <div class="input-group input-group-md mb-2 p-3">
-            <span class="input-group-text" id="inputGroup-sizing-md">Nombres y apellidos</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-md" formControlName="stock" />
-        </div>
-        <div class="row g-0">
-            <div class="col p-3">
-                <div class="input-group input-group-md mb-2">
-                    <span class="input-group-text" id="inputGroup-sizing-md">DNI</span>
-                    <input type="number" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-md" formControlName="stock" />
-                </div>
-
+    <app-barra [opciones]="opcionesTipoRecepcion" [opcionId]="opcionId" (opcionEscogidaEmitter)="obtenerIdOpcion($event)"></app-barra>
+    
+    <form class="cuerpo-tipo-recepcion row g-0" [formGroup]="recepcionForm">
+        <h3 *ngIf="opcionesTipoRecepcion[opcionId]===opcionesTipoRecepcion[1]" class="mb-2" >Mi datos</h3>
+        
+        <div class="" id="yo-recepciono">
+            <div class="input-group input-group-md mb-2 p-3">
+                <span class="input-group-text" id="inputGroup-sizing-md">Nombres y apellidos</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-md" formControlName="nombres_completos" />
             </div>
-            <div class="col p-3">
-                <div class="input-group input-group-md mb-2">
-                    <span class="input-group-text" id="inputGroup-sizing-md">Telefono</span>
-                    <input type="number" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+            <div class="row g-0">
+                <div class="col p-3">
+                    <div class="input-group input-group-md mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-md">DNI</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="dni" />
+                    </div>
+    
                 </div>
-
+                <div class="col p-3">
+                    <div class="input-group input-group-md mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Telefono</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="telefono" />
+                    </div>
+    
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="" *ngIf="opcionId===1" id="otro-recepciona">
+            
+            <h3 class="mb-2" >Datos de la persona que recepciona</h3>
+            <div class="input-group input-group-md mb-2 p-3">
+                <span class="input-group-text" id="inputGroup-sizing-md">Nombres y apellidos</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-md" formControlName="nombres_completos_otro_recepcionista" />
+            </div>
+            <div class="row g-0">
+                <div class="col p-3">
+                    <div class="input-group input-group-md mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-md">DNI</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="dni_otro_recepcionista" />
+                    </div>
+    
+                </div>
+                <div class="col p-3">
+                    <div class="input-group input-group-md mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-md">Telefono</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-md" formControlName="telefono_otro_recepcionista" />
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

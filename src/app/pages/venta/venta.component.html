@@ -26,7 +26,7 @@
                     S/{{producto.producto.precioUnidad}}
                 </div>
                 <div class="col-md-2 centrado">
-                    S/{{producto.producto.precioUnidad*producto.cantidad}}
+                    S/{{producto.producto.precioUnidad*producto.cantidad | number:'1.2-2'}}
                 </div>
         
             </div>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="col-md-2 centrado">
-                S/{{monto}}
+                S/{{monto | number:'1.2-2'}}
             </div>
         </div>
 
@@ -52,15 +52,16 @@
     </div>
 
 </div>
-<div *ngIf="pedido.productos.length!==0" class="venta row mt-3 mb-3">
+<!-- <div *ngIf="pedido.productos.length!==0" class="venta row mt-3 mb-3"> -->
+<div class="venta row mt-3 mb-3">
 
     <div class="col">
         <div class="titulo-venta">Seccion de la venta - {{pagina}}</div>
 
         <div class="seccion-venta mb-3" [ngSwitch]="pagina">
-            <app-tipo-entrega *ngSwitchCase="'tipo de entrega'"></app-tipo-entrega>
-            <app-tipo-recepcion *ngSwitchCase="'tipo de recepcion'"></app-tipo-recepcion>
-            <app-metodo-pago *ngSwitchCase="'metodo de pago'"></app-metodo-pago>
+            <app-tipo-entrega *ngSwitchCase="'tipo de entrega'" (formularioEmitter)="actualizarForm($event,0)" ></app-tipo-entrega>
+            <app-tipo-recepcion  *ngSwitchCase="'tipo de recepcion'" (formularioEmitter)="actualizarForm($event,1)"></app-tipo-recepcion>
+            <app-metodo-pago *ngSwitchCase="'metodo de pago'" (formularioEmitter)="actualizarForm($event,2)"></app-metodo-pago>
         </div>
         <div class="navegacion-venta row">
             <div class="col-md-6">
@@ -70,11 +71,11 @@
             </div>
             <div class="col-md-6">
                 <button *ngIf="idPagina<3" class="btn btn-danger float-end"
-                    (click)="navegar(idPagina+1,'derecha')">{{obtenerPaginacion(idPagina+1)}} <i
+                    (click)="navegar(idPagina+1,'derecha')" [disabled]="!activacion">{{obtenerPaginacion(idPagina+1)}} <i
                         class="fas fa-angle-right ms-1"> </i></button>
                 <button *ngIf="idPagina==3" class="btn btn-success float-end"
-                    [routerLink]="['/comprobante',0]">{{obtenerPaginacion(idPagina+1)}} <i
-                        class="fas fa-angle-right ms-1"> </i></button>
+                    [routerLink]="['/comprobante',0]" [disabled]="!activacion">{{obtenerPaginacion(idPagina+1)}} <i
+                        class="fas fa-angle-right ms-1" > </i></button>
             </div>
 
         </div>

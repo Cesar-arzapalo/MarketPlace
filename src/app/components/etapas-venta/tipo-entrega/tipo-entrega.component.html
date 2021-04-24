@@ -1,26 +1,125 @@
 <div class="contenido">
-        <app-barra [opciones]="opcionesTipoEntrega"></app-barra>
-        <div class="cuerpo-tipo-recepcion row g-0">
-                <div class="row g-0">
-                        <div class="col p-3">
-                                <div class="input-group input-group-md mb-2">
-                                        <span class="input-group-text" id="inputGroup-sizing-md">Distrito</span>
-                                        <input type="text" class="form-control" aria-label="Sizing example input"
-                                                aria-describedby="inputGroup-sizing-md" formControlName="stock" />
+        <app-barra [opciones]="opcionesTipoEntrega" [opcionId]="opcionId" (opcionEscogidaEmitter)="obtenerIdOpcion($event)"></app-barra>
+        <form class="cuerpo-tipo-recepcion row g-0"  [formGroup]="entregaForm">
+                        <div class="row g-0">
+                                <div *ngIf="opcionId===0" class="col p-3">
+                                        <div class="input-group input-group-md mb-2">
+                                                <span class="input-group-text" id="inputGroup-sizing-md">Distrito</span>
+                                                <select class="form-select" aria-label="Default select example"  
+                                                        aria-describedby="inputGroup-sizing-md"  formControlName="distrito">
+                                                        <option selected value="Ancon">Ancon</option>
+                                                        <option value="Ate">Ate</option>
+                                                        <option value="Barranco">Barranco</option>
+                                                        <option value="Breña">Breña</option>
+                                                        <option value="Carabayllo">Carabayllo</option>
+                                                        <option value="Chaclacayo">Chaclacayo</option>
+                                                        <option value="Chorrillos">Chorrillos</option>
+                                                        <option value="Cieneguilla">Cieneguilla</option>
+                                                        <option value="Comas">Comas</option>
+                                                        <option value="El Agustino">El Agustino</option>
+                                                        <option value="Independencia">Independencia</option>
+                                                        <option value="Jesús María">Jesús María</option>
+                                                        <option value="La Molina">La Molina</option>
+                                                        <option value="La Victoria">La Victoria</option>
+                                                        <option value="Lima">Lima</option>
+                                                        <option value="Lince">Lince</option>
+                                                        <option value="Los Olivos">Los Olivos</option>
+                                                        <option value="Lurigancho">Lurigancho</option>
+                                                        <option value="Lurín">Lurín</option>
+                                                        <option value="Magdalena del Mar">Magdalena del Mar</option>
+                                                        <option value="Miraflores">Miraflores</option>
+                                                        <option value="Pachacamac">Pachacamac</option>
+                                                        <option value="Pucusana">Pucusana</option>
+                                                        <option value="Pueblo Libre">Pueblo Libre</option>
+                                                        <option value="Puente Piedra">Puente Piedra</option>
+                                                        <option value="Punta Hermosa">Punta Hermosa</option>
+                                                        <option value="Punta Negra">Punta Negra</option>
+                                                        <option value="Rímac">Rímac</option>
+                                                        <option value="San Bartolo">San Bartolo</option>
+                                                        <option value="San Borja">San Borja</option>
+                                                        <option value="San Isidro">San Isidro</option>
+                                                        <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
+                                                        <option value="San Juan de Miraflores">San Juan de Miraflores</option>
+                                                        <option value="San Luis">San Luis</option>
+                                                        <option value="San Martín de Porres">San Martín de Porres</option>
+                                                        <option value="San Miguel">San Miguel</option>
+                                                        <option value="Santa Anita">Santa Anita</option>
+                                                        <option value="Santa María del Mar">Santa María del Mar</option>
+                                                        <option value="Santa Rosa">Santa Rosa</option>
+                                                        <option value="Santiago de Surco">Santiago de Surco</option>
+                                                        <option value="Surquillo">Surquillo</option>
+                                                        <option value="Villa El Salvador">Villa El Salvador</option>
+                                                        <option value="Villa María del Triunfo">Villa María del Triunfo</option>
+                                                      </select>
+                                                
+                                        </div>
+                                </div>
+                                <div *ngIf="opcionId===0" class="col p-3">
+                                        <div class="input-group input-group-md mb-2">
+                                                <span class="input-group-text" id="inputGroup-sizing-md">Codigo Postal</span>
+                                                <input type="number" class="form-control" aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-md" formControlName="codigo_postal" />
+                                        </div>
+                                </div>
+                                <div class="row g-0" *ngIf="opcionId===0">
+                                        <div class="input-group input-group-md mb-2 p-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-md">Direccion de domicilio</span>
+                                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-md" formControlName="direccion" />
+                                        </div>
+                                </div>
+                                <div  *ngIf="opcionId===1" class="col p-3">
+                                        <div class="input-group input-group-md mb-2">
+                                                <span class="input-group-text" id="inputGroup-sizing-md">Tienda</span>
+                                                <select class="form-select" aria-label="Default select example"  
+                                                        aria-describedby="inputGroup-sizing-md"  formControlName="distrito">
+                                                        <option selected value="Ancon">Ancon</option>
+                                                        <option value="Ate">Tienda de Ate</option>
+                                                        <option value="Barranco">Tienda de Barranco</option>
+                                                        <option value="Breña">Tienda de Breña</option>
+                                                        <option value="Carabayllo">Tienda de Carabayllo</option>
+                                                        <option value="Chaclacayo">Tienda de Chaclacayo</option>
+                                                        <option value="Chorrillos">Tienda de Chorrillos</option>
+                                                        <option value="Cieneguilla">Tienda de Cieneguilla</option>
+                                                        <option value="Comas">Tienda de Comas</option>
+                                                        <option value="El Agustino">Tienda de El Agustino</option>
+                                                        <option value="Independencia">Tienda de Independencia</option>
+                                                        <option value="Jesús María">Tienda de Jesús María</option>
+                                                        <option value="La Molina">Tienda de La Molina</option>
+                                                        <option value="La Victoria">Tienda de La Victoria</option>
+                                                        <option value="Lima">Tienda de Lima</option>
+                                                        <option value="Lince">Tienda de ince</option>
+                                                        <option value="Los Olivos">Tienda de Los Olivos</option>
+                                                        <option value="Lurigancho">Tienda de Lurigancho</option>
+                                                        <option value="Lurín">Tienda de Lurín</option>
+                                                        <option value="Magdalena del Mar">Tienda de Magdalena del Mar</option>
+                                                        <option value="Miraflores">Tienda de Miraflores</option>
+                                                        <option value="Pachacamac">Tienda de Pachacamac</option>
+                                                        <option value="Pucusana">Tienda de Pucusana</option>
+                                                        <option value="Pueblo Libre">Tienda de Pueblo Libre</option>
+                                                        <option value="Puente Piedra">Tienda de Puente Piedra</option>
+                                                        <option value="Punta Hermosa">Tienda de Punta Hermosa</option>
+                                                        <option value="Punta Negra">Tienda de Punta Negra</option>
+                                                        <option value="Rímac">Tienda de Rímac</option>
+                                                        <option value="San Bartolo">Tienda de San Bartolo</option>
+                                                        <option value="San Borja">Tienda de San Borja</option>
+                                                        <option value="San Isidro">Tienda de San Isidro</option>
+                                                        <option value="San Juan de Lurigancho">Tienda de San Juan de Lurigancho</option>
+                                                        <option value="San Juan de Miraflores">Tienda de San Juan de Miraflores</option>
+                                                        <option value="San Luis">Tienda de San Luis</option>
+                                                        <option value="San Martín de Porres">San Martín de Porres</option>
+                                                        <option value="San Miguel">Tienda de San Miguel</option>
+                                                        <option value="Santa Anita">Tienda de Santa Anita</option>
+                                                        <option value="Santa María del Mar">Tienda de Santa María del Mar</option>
+                                                        <option value="Santa Rosa">Tienda de Santa Rosa</option>
+                                                        <option value="Santiago de Surco">Tienda de Santiago de Surco</option>
+                                                        <option value="Surquillo">Tienda de Surquillo</option>
+                                                        <option value="Villa El Salvador">Tienda de Villa El Salvador</option>
+                                                        <option value="Villa María del Triunfo">Tienda de Villa María del Triunfo</option>
+                                                      </select>
+                                        </div>
                                 </div>
                         </div>
-                        <div class="col p-3">
-                                <div class="input-group input-group-md mb-2">
-                                        <span class="input-group-text" id="inputGroup-sizing-md">Codigo Postal</span>
-                                        <input type="number" class="form-control" aria-label="Sizing example input"
-                                                aria-describedby="inputGroup-sizing-md" formControlName="stock" />
-                                </div>
-                        </div>
-                        <div class="input-group input-group-md mb-2 p-3">
-                                <span class="input-group-text" id="inputGroup-sizing-md">Direccion de domicilio</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-md" formControlName="stock" />
-                        </div>
-                </div>
-        </div>
+               
+        </form>
 </div>

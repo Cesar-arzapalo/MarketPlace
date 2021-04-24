@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tipo-recepcion',
@@ -6,12 +7,59 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tipo-recepcion.component.css']
 })
 export class TipoRecepcionComponent implements OnInit {
-  opcionesTipoRecepcion:string[]; 
-  constructor() { 
-    this.opcionesTipoRecepcion=["Yo recepciono","Un conocido mio recepciona"]
+  opcionesTipoRecepcion:string[];
+  opcionId:number=0;
+  recepcionForm: FormGroup;
+  @Output() formularioEmitter: EventEmitter<FormGroup>;
+  constructor(fb: FormBuilder) { 
+    this.opcionesTipoRecepcion=["Yo recepciono","Un conocido mio recepciona"],
+    this.recepcionForm = fb.group({
+      nombres_completos:['',[Validators.required]],
+      dni:[0,[Validators.required,Validators.min(1000000),Validators.max(99999999)]],
+      telefono:[0,[Validators.required,Validators.min(900000000),Validators.max(999999999)]],
+      nombres_completos_otro_recepcionista!:['Dato',[Validators.required]],
+      dni_otro_recepcionista:[99999999,[Validators.required,Validators.min(1000000),Validators.max(99999999)]],
+      telefono_otro_recepcionista:[999999999,[Validators.required,Validators.min(900000000),Validators.max(999999999)]],
+      otro_recepcionista:[false,[Validators.required]]
+    })
+
+    this.formularioEmitter = new EventEmitter<FormGroup>()
   }
 
   ngOnInit(): void {
+    this.crearListener()
+  }
+
+  crearListener(){
+    this.recepcionForm.valueChanges.subscribe((valor) => {
+      console.log(valor, this.recepcionForm);
+    })
+
+    this.recepcionForm.statusChanges.subscribe((status) => {
+      console.log({status},status)
+      if(status == "VALID"){
+        console.log("holi")
+        this.formularioEmitter.emit(this.recepcionForm);
+      }
+    })
+  }
+
+
+  obtenerIdOpcion(idOpcion:number){
+    console.log('tipo de entrega')
+    this.recepcionForm.get("otro_recepcionista")?.setValue((idOpcion===0?false:true)) 
+    if(idOpcion===1){
+      this.recepcionForm.get("nombres_completos_otro_recepcionista")?.setValue("") 
+      this.recepcionForm.get("dni_otro_recepcionista")?.setValue(undefined) 
+      this.recepcionForm.get("telefono_otro_recepcionista")?.setValue(undefined) 
+    }else{
+      this.recepcionForm.get("nombres_completos_otro_recepcionista")?.setValue("Dato") 
+      this.recepcionForm.get("dni_otro_recepcionista")?.setValue(99999999) 
+      this.recepcionForm.get("telefono_otro_recepcionista")?.setValue(999999999) 
+    }
+    console.log(this.opcionId,idOpcion)
+    this.opcionId= idOpcion
+    console.log(this.opcionId,idOpcion)
   }
 
 }

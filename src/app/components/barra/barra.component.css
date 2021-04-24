@@ -16,11 +16,25 @@
 }
 
 .barra-option:hover{
-    background-color: #fff;
-    color: red;
+    background-color:red;
+    color: #fff;
+    opacity: 0.75;
+    font-size: 24px;
 }
 
 .barra-option:active{
     
     background-color: #c0c0c0;
+}
+
+.opcion-no-seleccionada{
+
+    background-color: #fff;
+    color: red;
+}
+
+.opcion-seleccionada{
+
+    background-color:red;
+    color: #fff;
 }
