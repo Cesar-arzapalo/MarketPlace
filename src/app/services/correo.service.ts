@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 @Injectable({
@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class CorreoService {
   url:string = "https://happycarperu.com/web_service/email_service/index.php";
+  headers:HttpHeaders = new HttpHeaders ({'Access-Control-Allow-Origin': '*'});
   constructor(private http:HttpClient) { 
     
   }
@@ -16,7 +17,7 @@ export class CorreoService {
       username: user,
       asunto: asunt,
       mensaje: mns
-    });
+    },{headers: this.headers});
   }
 
 
