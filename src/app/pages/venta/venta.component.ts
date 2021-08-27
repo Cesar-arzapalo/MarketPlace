@@ -39,7 +39,7 @@ export class VentaComponent implements OnInit {
       ventaForm:[,Validators.required]
     })
     console.log(this.pedido)
-    correoService.enviarCorreo("minorin.sayakan@gmail.com","User","Envio de boleta de pago - Emark","Gracias por comprar en Emark")
+    correoService.enviarCorreo("rousseau.arca@gmail.com","User","Envio de boleta de pago - Emark","Gracias por comprar en Emark")
    }
 
   ngOnInit(): void {
