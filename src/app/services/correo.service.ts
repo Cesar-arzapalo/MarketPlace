@@ -9,8 +9,9 @@ export class CorreoService {
   url:string = "https://happycarperu.com/web_service/email_service/index.php";
   headers:HttpHeaders = new HttpHeaders ({
     // 'Access-Control-Allow-Credentials' : 'true',
-    "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe",
-    'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, PUT, OPTIONS'
+    'Access-Control-Allow-Origin': '*',
+    // "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe",
+    // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, PUT, OPTIONS'
   });
   constructor(private http:HttpClient) { 
     
