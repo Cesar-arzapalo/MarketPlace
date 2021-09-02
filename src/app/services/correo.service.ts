@@ -17,6 +17,7 @@ export class CorreoService {
     
   }
   enviarCorreo(dest:string,user:string,asunt:string,mns:string){
+    console.log(`${this.url}?dest=${dest}&user=${user}&asunt=${asunt}&mns=${mns}`)
     return this.http.get(`${this.url}?dest=${dest}&user=${user}&asunt=${asunt}&mns=${mns}`
       //,{headers: this.headers}
     );

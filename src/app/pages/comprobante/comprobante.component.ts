@@ -24,11 +24,9 @@ export class ComprobanteComponent implements OnInit {
   }
 
   async crearComprobante(){
-    console.log(<HTMLCanvasElement> document.querySelector("#comprobante"))
     
     html2canvas(  <HTMLCanvasElement> document.querySelector("#comprobante")!).then(canvas => {
       this.comprobante = canvas.toDataURL();
-      console.log(this.comprobante)
       this.realizarDescarga(this.comprobante)      
     }).catch(err =>{
       console.error(err.error)
@@ -107,7 +105,7 @@ export class ComprobanteComponent implements OnInit {
       })
       Toast.isLoading()
       await this.crearComprobante()
-      this.correoService.enviarCorreo(email,'User','Envio de boleta de pago - Emark','Gracias por comprar en Emark').toPromise().then( mns => {
+      this.correoService.enviarCorreo(email,'sistemas_distribuidos','asunto','cuerpo').toPromise().then( mns => {
         console.log(mns)
         const Toast = Swal.mixin({
           toast: true,
