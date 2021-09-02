@@ -17,11 +17,7 @@ export class CorreoService {
     
   }
   enviarCorreo(dest:string,user:string,asunt:string,mns:string){
-    return this.http.post(this.url, {
-      destinatario: dest,
-      username: user,
-      asunto: asunt,
-      mensaje: mns}
+    return this.http.get(`${this.url}?dest=${dest}&user=${user}&asunt=${asunt}&mns=${mns}`
       //,{headers: this.headers}
     );
   }
