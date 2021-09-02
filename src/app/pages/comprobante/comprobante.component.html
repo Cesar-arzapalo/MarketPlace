@@ -1,52 +1,57 @@
 <div class="pedido row mt-3 mb-3">
     <div class="col">
-        <div class="titulo-venta">
-            Pedido realizado
-        </div>
-
-        <div class="cabecera-pedido row g-0 mt-3">
-            <div class="col-md-2 centrado">Imagen</div>
-            <div class="col-md-4 centrado">Nombre</div>
-            <div class="col-md-2 centrado">Cantidad</div>
-            <div class="col-md-2 centrado">Precio Unit.</div>
-            <div class="col-md-2 centrado">Precio Subtotal.</div>
-        </div>
-        <div class="cuerpo-pedido">
-            <div *ngFor="let producto of pedido.productos" class="producto row g-0">
-                <div class="col-md-2 centrado">
-                    <img [src]="producto.producto.imagenesRefereciales[0]" alt="">
-                </div>
-                <div class="col-md-4 centrado">
-                    {{producto.producto.nombre | maxLength:40:" ..."}}
-                </div>
-                <div class="col-md-2 centrado">
-                   {{producto.cantidad}}
-                </div>
-                <div class="col-md-2 centrado">
-                    S/{{producto.producto.precioUnidad}}
-                </div>
-                <div class="col-md-2 centrado">
-                    S/{{producto.producto.precioUnidad*producto.cantidad}}
-                </div>
-        
+        <div id="comprobante">
+            <div class="titulo-venta">
+                Pedido realizado
             </div>
+    
+            <div class="cabecera-pedido row g-0 mt-3">
+                <div class="col-md-2 centrado">Imagen</div>
+                <div class="col-md-4 centrado">Nombre</div>
+                <div class="col-md-2 centrado">Cantidad</div>
+                <div class="col-md-2 centrado">Precio Unit.</div>
+                <div class="col-md-2 centrado">Precio Subtotal.</div>
+            </div>
+            <div class="cuerpo-pedido">
+                <div *ngFor="let producto of pedido.productos" class="producto row g-0">
+                    <div class="col-md-2 centrado">
+                        <img [src]="producto.producto.imagenesRefereciales[0]" alt="">
+                    </div>
+                    <div class="col-md-4 centrado">
+                        {{producto.producto.nombre | maxLength:40:" ..."}}
+                    </div>
+                    <div class="col-md-2 centrado">
+                       {{producto.cantidad}}
+                    </div>
+                    <div class="col-md-2 centrado">
+                        S/{{producto.producto.precioUnidad}}
+                    </div>
+                    <div class="col-md-2 centrado">
+                        S/{{producto.producto.precioUnidad*producto.cantidad}}
+                    </div>
             
-        </div>
-        <div class="monto-pedido row g-0" *ngIf="pedido.productos.length!==0">
-            <div class="col-md-10 ">
-                <div class="monto centrado-verticalmente-derecho">
-                    Monto total del pedido:
                 </div>
+                
             </div>
-            <div class="col-md-2 centrado">
-                S/{{monto}}
+            <div class="monto-pedido row g-0" *ngIf="pedido.productos.length!==0">
+                <div class="col-md-10 ">
+                    <div class="monto centrado-verticalmente-derecho">
+                        Monto total del pedido:
+                    </div>
+                </div>
+                <div class="col-md-2 centrado">
+                    S/{{monto}}
+                </div>
             </div>
         </div>
         <div class="navegacion-comprobante row">
-            <div class="col-md-6">
-                <button class="btn btn-secondary" (click)="enviarCorreo()"> Generar Comprobante electronico</button>
+            <div class="col-md-4">
+                <button class="btn btn-success" (click)="enviarCorreo()"> Enviar Comprobante por correo</button>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <button class="btn btn-secondary" (click)="descargarComprobante()">Descagar Comprobante</button>
+            </div>
+            <div class="col-md-4">
                 <button class="btn btn-primary float-end"[routerLink]="['/catalogo']"> Volver al catalogo</button>
             </div>
 

@@ -21,8 +21,9 @@ export class CorreoService {
       destinatario: dest,
       username: user,
       asunto: asunt,
-      mensaje: mns
-    },{headers: this.headers});
+      mensaje: mns}
+      //,{headers: this.headers}
+    );
   }
 
 

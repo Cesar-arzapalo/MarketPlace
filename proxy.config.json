@@ -1,0 +1,11 @@
+{
+    "/posts": {
+      "target": "https://happycarperu.com/",
+      "secure": true,
+      "pathRewrite": {
+      "^/posts": ""
+    },
+      "changeOrigin": true
+    }
+  }
+  
