@@ -1,10 +1,9 @@
 <div class="pedido row mt-3 mb-3">
     <div class="col">
-        <div id="comprobante">
+        <div *ngIf="pedidoCargado" id="comprobante">
             <div class="titulo-venta">
-                Pedido realizado
+                Comprobante electronico 
             </div>
-    
             <div class="cabecera-pedido row g-0 mt-3">
                 <div class="col-md-2 centrado">Imagen</div>
                 <div class="col-md-4 centrado">Nombre</div>
@@ -52,7 +51,7 @@
                 <button class="btn btn-secondary" (click)="descargarComprobante()">Descagar Comprobante</button>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-primary float-end"[routerLink]="['/catalogo']"> Volver al catalogo</button>
+                <button class="btn btn-primary float-center"[routerLink]="['/catalogo']"> Volver al catalogo</button>
             </div>
 
         </div>

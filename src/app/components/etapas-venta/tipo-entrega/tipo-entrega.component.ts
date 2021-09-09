@@ -30,13 +30,10 @@ export class TipoEntregaComponent implements OnInit {
 
   crearListener(){
     this.entregaForm.valueChanges.subscribe((valor) => {
-      console.log(valor,this.entregaForm);
     })
 
     this.entregaForm.statusChanges.subscribe((status) => {
-      console.log({status})
       if(status == "VALID"){
-        console.log("holi")
         this.formularioEmitter.emit(this.entregaForm);
       }
 
@@ -44,12 +41,9 @@ export class TipoEntregaComponent implements OnInit {
   }
 
   obtenerIdOpcion(idOpcion:number){
-    console.log('tipo de entrega')
     
     this.entregaForm.get("entregaDomicilio")?.setValue((idOpcion===1?false:true)) 
-    console.log(this.opcionId,idOpcion)
     this.opcionId= idOpcion
-    console.log(this.opcionId,idOpcion)
   }
 
 }

@@ -16,9 +16,9 @@ export class MetodoPagoComponent implements OnInit {
   constructor(fb: FormBuilder) { 
     this.opcionesMetodoPago=["Tarjeta","Billetera Digital", "Monedero"];
     this.pagoForm = fb.group({
-      nro_tarjeta:[10,[Validators.required,Validators.max(999999999999999),Validators.min(10^12)]],
+      nro_tarjeta:[4557,[Validators.required,Validators.max(9999999999999999),Validators.min(10^12)]],
       fecha_caducidad:['',[Validators.required]],
-      ccv:['',[Validators.required]]
+      ccv:['',[Validators.required,Validators.max(999),Validators.min(0)]]
     })
     this.formularioEmitter = new EventEmitter<FormGroup>()
   }
@@ -29,23 +29,17 @@ export class MetodoPagoComponent implements OnInit {
 
   crearListener(){
     this.pagoForm.valueChanges.subscribe((valor) => {
-      console.log(valor);
     })
 
     this.pagoForm.statusChanges.subscribe((status) => {
-      console.log({status})
       if(status == "VALID"){
-        console.log("holi")
         this.formularioEmitter.emit(this.pagoForm);
       }
     })
   }
   
   obtenerIdOpcion(idOpcion:number){
-    console.log('tipo de entrega')
-    console.log(this.opcionId,idOpcion)
     this.opcionId= idOpcion
-    console.log(this.opcionId,idOpcion)
   }
 
 }

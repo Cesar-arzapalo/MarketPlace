@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Producto } from '../models/producto.models';
@@ -25,7 +24,6 @@ export class ProductoService {
   cargarReferencias(){
     this.productosColections.ref.orderBy('nombre', 'asc').get().then(ref =>{
       ref.docs.map( doc => this.referenciasProductos.push(doc.id))
-      console.log(this.referenciasProductos)
     } )  
   }
    
@@ -37,13 +35,11 @@ export class ProductoService {
             .pipe(map((arrayProductos: Producto[]) => {
               this.productos = arrayProductos;
               this.productos=this.productos.map<Producto>((producto:Producto,idx:number) => {producto.id=this.referenciasProductos[idx]; return producto})
-              console.log(this.productos)
             }));
   }
 
   cargarProducto(idProducto:string){
     this.productosColections = this.store.collection<Producto>('producto', ref => ref.orderBy('nombre', 'asc'));
-    console.log(this.productosColections.doc(idProducto).get())
     return this.productosColections.doc(idProducto).get();
   }
 
