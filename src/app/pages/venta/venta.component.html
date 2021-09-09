@@ -23,7 +23,7 @@
                    {{producto.cantidad}}
                 </div>
                 <div class="col-md-2 centrado">
-                    S/{{producto.producto.precioUnidad}}
+                    S/{{producto.producto.precioUnidad | number:'1.2-2'}}
                 </div>
                 <div class="col-md-2 centrado">
                     S/{{producto.producto.precioUnidad*producto.cantidad | number:'1.2-2'}}

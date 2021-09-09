@@ -19,7 +19,7 @@ import { AuthService } from '@auth0/auth0-angular';
 export class ComprobanteComponent implements OnInit {
   mensaje!: Mensaje;
   pedido!: Pedido;
-  monto: Number = CarroCompartidoService.getMonto();
+  monto: number = 0;
   comprobante: any;
   pedidoCargado: boolean = false;
   constructor(private actRouter: ActivatedRoute, public router: Router,private auth: AuthService,
@@ -40,6 +40,7 @@ export class ComprobanteComponent implements OnInit {
       productosSolicitadosDB.map(productoSolicitadoDB => {
         console.log(productoSolicitadoDB)
         this.productoService.cargarProducto(productoSolicitadoDB.productoReferencia).subscribe(producto =>{
+          this.monto+=producto.data()?.precioUnidad!*productoSolicitadoDB.cantidad;
           productoSolicitado.push(new ProductoSolicitado(
             new Producto(productoSolicitadoDB.productoReferencia,producto.data()!.nombre,producto.data()!.descripcion,producto.data()!.valoracion,producto.data()!.visitas,
             producto.data()!.idProveedor,producto.data()!.idCategoria,producto.data()!.stock,producto.data()!.precioUnidad,producto.data()!.medida,
@@ -52,6 +53,7 @@ export class ComprobanteComponent implements OnInit {
   generarPedido(id:string){
     this.pedidoService.cargarPedido(id).subscribe(pedidoDB  =>{
       this.pedido = new Pedido(pedidoDB.data()!.fechaEmision, this.generarProductosSolicitados(<ProductoSolicitadoDB[]>pedidoDB.data()!.productosReferencia))
+      
       this.pedidoCargado=true;
       this.auth.user$.subscribe(perfil =>{
         this.mensaje= new Mensaje(pedidoDB.data()!.usuario,(perfil)?(perfil?.email!):"","Gracias por Comprar en EMARK - Comprobante Electronico",`https://e-mark.herokuapp.com${this.router.url}`)

@@ -17,6 +17,7 @@ export class Pedido{
     getMontoTotal(){
         var monto:number = 0;
         this.productos.map(producto => monto+=producto.cantidad*producto.producto.precioUnidad)
+        console.log(monto)
         return monto;
     }
 }
