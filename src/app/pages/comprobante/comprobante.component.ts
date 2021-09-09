@@ -149,7 +149,7 @@ export class ComprobanteComponent implements OnInit {
         timerProgressBar: true
       })
       Toast.isLoading()
-      await this.crearComprobante()
+      //await this.crearComprobante()
       this.crearAsunto();
       this.correoService.enviarCorreo('sistemas_distribuidos',email,this.mensaje.usuario,this.mensaje.asunto,this.mensaje.mensaje).toPromise().then( mns => {
         console.log(mns);
